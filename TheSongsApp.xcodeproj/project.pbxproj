@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB3B2AC2585D009A9959 /* AppDelegate.swift */; };
 		D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB3D2AC2585D009A9959 /* SceneDelegate.swift */; };
-		D460DB402AC2585D009A9959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB3F2AC2585D009A9959 /* ViewController.swift */; };
-		D460DB432AC2585D009A9959 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D460DB412AC2585D009A9959 /* Main.storyboard */; };
 		D460DB452AC2585F009A9959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D460DB442AC2585F009A9959 /* Assets.xcassets */; };
 		D460DB482AC2585F009A9959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */; };
 		D460DB532AC2585F009A9959 /* TheSongsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB522AC2585F009A9959 /* TheSongsAppTests.swift */; };
 		D460DB5D2AC2585F009A9959 /* TheSongsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB5C2AC2585F009A9959 /* TheSongsAppUITests.swift */; };
 		D460DB5F2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */; };
+		D460DB712AC3B532009A9959 /* SongSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB702AC3B532009A9959 /* SongSearchView.swift */; };
+		D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		D460DB382AC2585D009A9959 /* TheSongsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheSongsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D460DB3B2AC2585D009A9959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D460DB3D2AC2585D009A9959 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D460DB3F2AC2585D009A9959 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D460DB422AC2585D009A9959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D460DB442AC2585F009A9959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D460DB472AC2585F009A9959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D460DB492AC2585F009A9959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		D460DB582AC2585F009A9959 /* TheSongsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheSongsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D460DB5C2AC2585F009A9959 /* TheSongsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppUITests.swift; sourceTree = "<group>"; };
 		D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D460DB702AC3B532009A9959 /* SongSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchView.swift; sourceTree = "<group>"; };
+		D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +99,9 @@
 		D460DB3A2AC2585D009A9959 /* TheSongsApp */ = {
 			isa = PBXGroup;
 			children = (
-				D460DB3B2AC2585D009A9959 /* AppDelegate.swift */,
-				D460DB3D2AC2585D009A9959 /* SceneDelegate.swift */,
-				D460DB3F2AC2585D009A9959 /* ViewController.swift */,
-				D460DB412AC2585D009A9959 /* Main.storyboard */,
-				D460DB442AC2585F009A9959 /* Assets.xcassets */,
-				D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */,
-				D460DB492AC2585F009A9959 /* Info.plist */,
+				D460DB6B2AC25D94009A9959 /* Application */,
+				D460DB6E2AC25EA7009A9959 /* Scenes */,
+				D460DB6C2AC25DDC009A9959 /* Shared */,
 			);
 			path = TheSongsApp;
 			sourceTree = "<group>";
@@ -125,6 +121,50 @@
 				D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */,
 			);
 			path = TheSongsAppUITests;
+			sourceTree = "<group>";
+		};
+		D460DB6B2AC25D94009A9959 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB3B2AC2585D009A9959 /* AppDelegate.swift */,
+				D460DB3D2AC2585D009A9959 /* SceneDelegate.swift */,
+				D460DB492AC2585F009A9959 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D460DB6C2AC25DDC009A9959 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB6D2AC25DF0009A9959 /* Resources */,
+				D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D460DB6D2AC25DF0009A9959 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB442AC2585F009A9959 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D460DB6E2AC25EA7009A9959 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB6F2AC3B510009A9959 /* Song Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D460DB6F2AC3B510009A9959 /* Song Search */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB702AC3B532009A9959 /* SongSearchView.swift */,
+				D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */,
+			);
+			path = "Song Search";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +273,6 @@
 			files = (
 				D460DB482AC2585F009A9959 /* LaunchScreen.storyboard in Resources */,
 				D460DB452AC2585F009A9959 /* Assets.xcassets in Resources */,
-				D460DB432AC2585D009A9959 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D460DB402AC2585D009A9959 /* ViewController.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
+				D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */,
+				D460DB712AC3B532009A9959 /* SongSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +337,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D460DB412AC2585D009A9959 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D460DB422AC2585D009A9959 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,10 +471,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8Q8C944BU;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TheSongsApp/Info.plist;
+				INFOPLIST_FILE = TheSongsApp/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -467,10 +499,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8Q8C944BU;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TheSongsApp/Info.plist;
+				INFOPLIST_FILE = TheSongsApp/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
