@@ -16,6 +16,9 @@
 		D460DB5F2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */; };
 		D460DB712AC3B532009A9959 /* SongSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB702AC3B532009A9959 /* SongSearchView.swift */; };
 		D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */; };
+		D460DB772AC3C19F009A9959 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB762AC3C19F009A9959 /* WebService.swift */; };
+		D460DB7A2AC3C1C9009A9959 /* EndpointsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB792AC3C1C9009A9959 /* EndpointsProtocol.swift */; };
+		D460DB7C2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB7B2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D460DB702AC3B532009A9959 /* SongSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchView.swift; sourceTree = "<group>"; };
 		D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewModel.swift; sourceTree = "<group>"; };
+		D460DB762AC3C19F009A9959 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		D460DB792AC3C1C9009A9959 /* EndpointsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsProtocol.swift; sourceTree = "<group>"; };
+		D460DB7B2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPIEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DB6B2AC25D94009A9959 /* Application */,
+				D460DB752AC3C166009A9959 /* Network */,
 				D460DB6E2AC25EA7009A9959 /* Scenes */,
 				D460DB6C2AC25DDC009A9959 /* Shared */,
 			);
@@ -165,6 +172,24 @@
 				D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */,
 			);
 			path = "Song Search";
+			sourceTree = "<group>";
+		};
+		D460DB752AC3C166009A9959 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB762AC3C19F009A9959 /* WebService.swift */,
+				D460DB782AC3C1B3009A9959 /* Endpoints */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D460DB782AC3C1B3009A9959 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB792AC3C1C9009A9959 /* EndpointsProtocol.swift */,
+				D460DB7B2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,9 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D460DB7A2AC3C1C9009A9959 /* EndpointsProtocol.swift in Sources */,
+				D460DB7C2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
 				D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */,
+				D460DB772AC3C19F009A9959 /* WebService.swift in Sources */,
 				D460DB712AC3B532009A9959 /* SongSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
