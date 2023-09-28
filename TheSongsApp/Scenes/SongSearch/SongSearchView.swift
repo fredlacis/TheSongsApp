@@ -56,7 +56,7 @@ extension SongSearchView {
         viewModel.$songs
             .receive(on: DispatchQueue.main)
             .sink { [weak self] songs in
-                self?.tableView.reloadData()
+                self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             }
             .store(in: &cancellables)
     }

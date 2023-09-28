@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class SongSearchViewModel {
+final class SongSearchViewModel: SongsRepositoryInjection, ImagesRepositoryInjection {
     
     @Published var songs: [SongModel] = []
     
     func searchSongs(byTerm term: String) {
-        ITunesAPISongsRepository().searchSongs(byTerm: term) { [weak self] result in
+        songsRepository.searchSongs(byTerm: term) { [weak self] result in
             switch result {
                 case .success(let songs):
                     self?.songs = songs
@@ -25,9 +25,10 @@ final class SongSearchViewModel {
     
     func downloadSongsArtworks() {
         for (index, song) in songs.enumerated() {
-            RemoteImagesRepository().loadImage(from: song.artworkURL) { [weak self] result in
+            imagesRepository.loadImage(from: song.artworkURL) { [weak self] result in
                 switch result {
                     case .success(let image):
+                        guard index < (self?.songs.count ?? 0) else { break }
                         self?.songs[index].artwork = image
                     case .failure(let error):
                         debugPrint(error)

@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class RemoteImagesRepository: ImagesRepository {
-    
-    private let webService = WebService()
+final class RemoteImagesRepository: ImagesRepository, WebServiceInjection {
     
     private static var imagesCache = NSCache<NSString, UIImage>()
 

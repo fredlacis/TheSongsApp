@@ -7,11 +7,11 @@
 
 import UIKit
 
-class WebService {
+final class WebService: WebServiceProtocol {
     
     private let urlSession: URLSession = URLSession(configuration: .default)
     
-    public func get<T: Decodable>(type: T.Type, _ endpoint: Endpoint, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    public func send<T: Decodable>(type: T.Type, _ endpoint: Endpoint, completionHandler: @escaping (Result<T, Error>) -> Void) {
         guard let url = endpoint.urlComponents().url else {
             completionHandler(.failure(NetworkError.invalidEndpoint))
             return
