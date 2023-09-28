@@ -26,6 +26,9 @@
 		D460DB8B2AC4D797009A9959 /* ITunesAPISongDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB8A2AC4D797009A9959 /* ITunesAPISongDTO.swift */; };
 		D460DB8D2AC4DC8B009A9959 /* DTOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB8C2AC4DC8B009A9959 /* DTOProtocol.swift */; };
 		D460DB902AC4FF07009A9959 /* LossyDecodableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB8F2AC4FF07009A9959 /* LossyDecodableList.swift */; };
+		D460DB922AC5C02D009A9959 /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB912AC5C02D009A9959 /* ReusableCellProtocol.swift */; };
+		D460DB952AC5C099009A9959 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB942AC5C099009A9959 /* UITableViewCell.swift */; };
+		D460DB972AC5C129009A9959 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB962AC5C129009A9959 /* UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		D460DB8A2AC4D797009A9959 /* ITunesAPISongDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPISongDTO.swift; sourceTree = "<group>"; };
 		D460DB8C2AC4DC8B009A9959 /* DTOProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOProtocol.swift; sourceTree = "<group>"; };
 		D460DB8F2AC4FF07009A9959 /* LossyDecodableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyDecodableList.swift; sourceTree = "<group>"; };
+		D460DB912AC5C02D009A9959 /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCellProtocol.swift; sourceTree = "<group>"; };
+		D460DB942AC5C099009A9959 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		D460DB962AC5C129009A9959 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DB832AC4D5EB009A9959 /* Protocols */,
+				D460DB932AC5C088009A9959 /* Extensions */,
 				D460DB8E2AC4FEF3009A9959 /* Utils */,
 				D460DB6D2AC25DF0009A9959 /* Resources */,
 				D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */,
@@ -230,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DB8C2AC4DC8B009A9959 /* DTOProtocol.swift */,
+				D460DB912AC5C02D009A9959 /* ReusableCellProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -259,6 +267,15 @@
 				D460DB8F2AC4FF07009A9959 /* LossyDecodableList.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D460DB932AC5C088009A9959 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB942AC5C099009A9959 /* UITableViewCell.swift */,
+				D460DB962AC5C129009A9959 /* UITableView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,7 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D460DB7A2AC3C1C9009A9959 /* EndpointsProtocol.swift in Sources */,
+				D460DB952AC5C099009A9959 /* UITableViewCell.swift in Sources */,
 				D460DB7C2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift in Sources */,
+				D460DB922AC5C02D009A9959 /* ReusableCellProtocol.swift in Sources */,
 				D460DB7F2AC3C609009A9959 /* SongsRepository.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB8D2AC4DC8B009A9959 /* DTOProtocol.swift in Sources */,
@@ -400,6 +419,7 @@
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
 				D460DB862AC4D744009A9959 /* ITunesAPISongsRepository.swift in Sources */,
 				D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */,
+				D460DB972AC5C129009A9959 /* UITableView.swift in Sources */,
 				D460DB902AC4FF07009A9959 /* LossyDecodableList.swift in Sources */,
 				D460DB822AC3C644009A9959 /* SongModel.swift in Sources */,
 				D460DB772AC3C19F009A9959 /* WebService.swift in Sources */,
