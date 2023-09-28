@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class SongSearchView: UITableViewController {
     
-    let viewModel = SongSearchViewModel()
+    private let viewModel = SongSearchViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    
     let searchController = UISearchController()
     
     override func viewDidLoad() {
@@ -26,6 +29,7 @@ extension SongSearchView {
         setupTableView()
         setupSearchController()
         setupNavigationBar()
+        setupBindings()
     }
     
     private func setupTableView() {
@@ -34,7 +38,9 @@ extension SongSearchView {
     }
     
     private func setupSearchController() {
+        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
+        searchController.automaticallyShowsCancelButton = false
         searchController.obscuresBackgroundDuringPresentation = false
         
         navigationItem.searchController = searchController
@@ -46,14 +52,28 @@ extension SongSearchView {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func setupBindings() {
+        viewModel.$songs
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] songs in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+    }
+    
 }
 
-// MARK: UI Search Results Updating
-extension SongSearchView: UISearchResultsUpdating {
+// MARK: UI Search Results Updating & UI Search Controller Delegate
+extension SongSearchView: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
+        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else { return }
         viewModel.searchSongs(byTerm: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchController.isActive = false
     }
     
 }
@@ -62,25 +82,29 @@ extension SongSearchView: UISearchResultsUpdating {
 extension SongSearchView {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        15
+        viewModel.songs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(ofType: UITableViewCell.self, for: indexPath) else { return UITableViewCell() }
+        
+        let song = viewModel.songs[indexPath.row]
         
         cell.selectionStyle = .none
         
         cell.configurationUpdateHandler = { cell, state in
             var content = cell.defaultContentConfiguration().updated(for: state)
             
-            content.text = "Something"
+            content.text = song.trackName
             content.textProperties.font = .systemFont(ofSize: 16.0)
             
-            content.secondaryText = "Artist"
+            content.secondaryText = song.artistName
             content.secondaryTextProperties.color = .systemGray
             content.secondaryTextProperties.font = .systemFont(ofSize: 14.0)
             
-            content.image = UIImage(named: "trackImagePlaceholder")
+            content.image = song.artwork
+            content.imageProperties.cornerRadius = 8.0
+            content.imageProperties.maximumSize = .init(width: 44.0, height: 44.0)
             
             cell.contentConfiguration = content
         }

@@ -29,6 +29,8 @@
 		D460DB922AC5C02D009A9959 /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB912AC5C02D009A9959 /* ReusableCellProtocol.swift */; };
 		D460DB952AC5C099009A9959 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB942AC5C099009A9959 /* UITableViewCell.swift */; };
 		D460DB972AC5C129009A9959 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB962AC5C129009A9959 /* UITableView.swift */; };
+		D460DB9A2AC60324009A9959 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB992AC60324009A9959 /* ImagesRepository.swift */; };
+		D460DB9C2AC603AF009A9959 /* RemoteImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB9B2AC603AF009A9959 /* RemoteImagesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		D460DB912AC5C02D009A9959 /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCellProtocol.swift; sourceTree = "<group>"; };
 		D460DB942AC5C099009A9959 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		D460DB962AC5C129009A9959 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		D460DB992AC60324009A9959 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
+		D460DB9B2AC603AF009A9959 /* RemoteImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImagesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +224,8 @@
 		D460DB7D2AC3C5CF009A9959 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				D460DB842AC4D722009A9959 /* SongRepository */,
+				D460DB982AC60312009A9959 /* ImagesRepository */,
+				D460DB842AC4D722009A9959 /* SongsRepository */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -242,14 +247,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		D460DB842AC4D722009A9959 /* SongRepository */ = {
+		D460DB842AC4D722009A9959 /* SongsRepository */ = {
 			isa = PBXGroup;
 			children = (
 				D460DB7E2AC3C609009A9959 /* SongsRepository.swift */,
 				D460DB852AC4D744009A9959 /* ITunesAPISongsRepository.swift */,
 				D460DB872AC4D758009A9959 /* DTOs */,
 			);
-			path = SongRepository;
+			path = SongsRepository;
 			sourceTree = "<group>";
 		};
 		D460DB872AC4D758009A9959 /* DTOs */ = {
@@ -276,6 +281,15 @@
 				D460DB962AC5C129009A9959 /* UITableView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D460DB982AC60312009A9959 /* ImagesRepository */ = {
+			isa = PBXGroup;
+			children = (
+				D460DB992AC60324009A9959 /* ImagesRepository.swift */,
+				D460DB9B2AC603AF009A9959 /* RemoteImagesRepository.swift */,
+			);
+			path = ImagesRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,8 +427,10 @@
 				D460DB7C2AC3C2F2009A9959 /* ITunesAPIEndpoint.swift in Sources */,
 				D460DB922AC5C02D009A9959 /* ReusableCellProtocol.swift in Sources */,
 				D460DB7F2AC3C609009A9959 /* SongsRepository.swift in Sources */,
+				D460DB9C2AC603AF009A9959 /* RemoteImagesRepository.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB8D2AC4DC8B009A9959 /* DTOProtocol.swift in Sources */,
+				D460DB9A2AC60324009A9959 /* ImagesRepository.swift in Sources */,
 				D460DB892AC4D787009A9959 /* ITunesAPISongsListDTO.swift in Sources */,
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
 				D460DB862AC4D744009A9959 /* ITunesAPISongsRepository.swift in Sources */,
