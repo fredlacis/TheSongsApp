@@ -11,7 +11,7 @@ class WebService {
     
     private let urlSession: URLSession = URLSession(configuration: .default)
     
-    public func get<T: Codable>(type: T.Type, _ endpoint: Endpoint, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    public func get<T: Decodable>(type: T.Type, _ endpoint: Endpoint, completionHandler: @escaping (Result<T, Error>) -> Void) {
         guard let url = endpoint.urlComponents().url else {
             completionHandler(.failure(NetworkError.invalidEndpoint))
             return
@@ -88,7 +88,7 @@ class WebService {
         }
     }
     
-    private func parseJSON<T: Codable>(data: Data) throws -> T {
+    private func parseJSON<T: Decodable>(data: Data) throws -> T {
         let decoder = JSONDecoder()
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData

@@ -9,6 +9,7 @@ import Foundation
 
 enum ITunesAPIEndpoint: Endpoint {
     case searchMusic(_ searchTerm: String, offset: Int = 0)
+    case lookupAlbum(_ albumID: String)
     
     var scheme: String {
         return "https"
@@ -21,7 +22,9 @@ enum ITunesAPIEndpoint: Endpoint {
     var path: String {
         switch self {
             case .searchMusic(_, _):
-                return "search"
+                return "/search"
+            case .lookupAlbum(_):
+                return "/lookup"
         }
     }
     
@@ -32,7 +35,12 @@ enum ITunesAPIEndpoint: Endpoint {
                     URLQueryItem(name: "media", value: "music"),
                     URLQueryItem(name: "limit", value: "15"),
                     URLQueryItem(name: "offset", value: "\(offset)"),
-                    URLQueryItem(name: "term", value: searchTerm.replacingOccurrences(of: " ", with: "+"))
+                    URLQueryItem(name: "term", value: searchTerm.replacingOccurrences(of: " ", with: "+")),
+                ]
+            case .lookupAlbum(let albumID):
+                return [
+                    URLQueryItem(name: "id", value: albumID),
+                    URLQueryItem(name: "entity", value: "song"),
                 ]
         }
     }
