@@ -1,5 +1,5 @@
 //
-//  SongSearchView.swift
+//  SongSearchViewController.swift
 //  TheSongsApp
 //
 //  Created by Frederico Lacis de Carvalho on 26/09/23.
@@ -8,12 +8,14 @@
 import UIKit
 import Combine
 
-class SongSearchView: UITableViewController {
+class SongSearchViewController: UITableViewController {
     
+    var coordinator: SongsCoordinator?
+
     private let viewModel = SongSearchViewModel()
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
-    let searchController = UISearchController()
+    private let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class SongSearchView: UITableViewController {
 }
 
 // MARK: Setup Methods
-extension SongSearchView {
+extension SongSearchViewController {
     
     private func setupView() {
         setupTableView()
@@ -58,13 +60,13 @@ extension SongSearchView {
             .sink { [weak self] songs in
                 self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
 }
 
 // MARK: UI Search Results Updating & UI Search Controller Delegate
-extension SongSearchView: UISearchResultsUpdating, UISearchBarDelegate {
+extension SongSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, !searchText.isEmpty else { return }
@@ -79,7 +81,7 @@ extension SongSearchView: UISearchResultsUpdating, UISearchBarDelegate {
 }
 
 // MARK: UI Table View Data Source
-extension SongSearchView {
+extension SongSearchViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.songs.count
@@ -115,10 +117,10 @@ extension SongSearchView {
 }
 
 // MARK: UI Table View Delegate
-extension SongSearchView {
+extension SongSearchViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        coordinator?.selectSong(viewModel.songs[indexPath.row])
     }
     
 }

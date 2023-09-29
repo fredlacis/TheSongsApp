@@ -9,22 +9,14 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
+    var applicationCoordinator: CoordinatorProtocol?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        let entryPoint = SongSearchView()
-        
         let window = UIWindow(windowScene: windowScene)
-        
-        let navigationController = UINavigationController(rootViewController: entryPoint)
-        window.rootViewController = navigationController
-        
-        self.window = window
+        applicationCoordinator = ApplicationCoordinator(window: window)
+        applicationCoordinator?.start()
         window.makeKeyAndVisible()
     }
 
-
 }
-
