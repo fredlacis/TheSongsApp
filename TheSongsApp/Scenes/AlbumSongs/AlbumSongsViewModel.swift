@@ -17,7 +17,7 @@ final class AlbumSongsViewModel: SongsRepositoryInjection, ImagesRepositoryInjec
     }
     
     func getAlbumSongs() {
-        songsRepository.getAlbumSongs(byID: album.albumID) { [weak self] result in
+        songsRepository.getAlbumSongs(byID: album.id) { [weak self] result in
             switch result {
                 case .success(let songs):
                     self?.album.songs = songs

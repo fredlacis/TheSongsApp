@@ -15,14 +15,6 @@ class SongOptionsView: UIView {
         return view
     }()
     
-    var titleLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 18.0)
-        label.textAlignment = .center
-        return label
-    }()
-    
     var subtitleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +58,6 @@ class SongOptionsView: UIView {
     
     func addSubviews() {
         addSubview(containerView)
-        containerView.addSubview(titleLabel)
         containerView.addSubview(subtitleLabel)
         containerView.addSubview(openAlbumButton)
     }
@@ -77,19 +68,14 @@ class SongOptionsView: UIView {
             containerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 24.0),
             containerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -24.0),
             
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32.0),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.0),
+            subtitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -8.0),
             subtitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
             openAlbumButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40.0),
-            openAlbumButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40.0),
+            openAlbumButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -80.0),
             openAlbumButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             openAlbumButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            openAlbumButton.heightAnchor.constraint(equalToConstant: 40.0)
         ])
     }
     

@@ -53,6 +53,8 @@
 		D460DBD02AC8AB3C009A9959 /* AlbumSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBCF2AC8AB3C009A9959 /* AlbumSongsViewController.swift */; };
 		D460DBD22AC8AB46009A9959 /* AlbumSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */; };
 		D460DBD42AC8AC9C009A9959 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */; };
+		D460DBD62AC8BA48009A9959 /* TimeMovingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */; };
+		D460DBD82AC8C10D009A9959 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD72AC8C10D009A9959 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,8 @@
 		D460DBCF2AC8AB3C009A9959 /* AlbumSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongsViewController.swift; sourceTree = "<group>"; };
 		D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongsViewModel.swift; sourceTree = "<group>"; };
 		D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMovingDirection.swift; sourceTree = "<group>"; };
+		D460DBD72AC8C10D009A9959 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,7 @@
 			children = (
 				D460DB812AC3C644009A9959 /* SongModel.swift */,
 				D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */,
+				D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				D460DB962AC5C129009A9959 /* UITableView.swift */,
 				D460DBB82AC71F53009A9959 /* UINavigationController.swift */,
 				D460DBC12AC75F5C009A9959 /* Double.swift */,
+				D460DBD72AC8C10D009A9959 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 				D460DB7F2AC3C609009A9959 /* SongsRepository.swift in Sources */,
 				D460DB9C2AC603AF009A9959 /* RemoteImagesRepository.swift in Sources */,
 				D460DBB92AC71F53009A9959 /* UINavigationController.swift in Sources */,
+				D460DBD62AC8BA48009A9959 /* TimeMovingDirection.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB8D2AC4DC8B009A9959 /* DTOProtocol.swift in Sources */,
 				D460DBC72AC7A5A6009A9959 /* SongOptionsViewController.swift in Sources */,
@@ -570,6 +577,7 @@
 				D460DB822AC3C644009A9959 /* SongModel.swift in Sources */,
 				D460DBA22AC60800009A9959 /* WebServiceProtocol.swift in Sources */,
 				D460DB772AC3C19F009A9959 /* WebService.swift in Sources */,
+				D460DBD82AC8C10D009A9959 /* UIButton.swift in Sources */,
 				D460DBC52AC7A58E009A9959 /* SongOptionsView.swift in Sources */,
 				D460DBCD2AC8A9FA009A9959 /* TSASongTableViewCell.swift in Sources */,
 				D460DBD22AC8AB46009A9959 /* AlbumSongsViewModel.swift in Sources */,

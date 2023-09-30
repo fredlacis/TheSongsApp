@@ -15,12 +15,8 @@ class MusicPlayerService {
     @Published var songDuration: CMTime = CMTime.zero
     @Published var currentSongPlaybackTime: CMTime = CMTime.zero
     
-    var songsList: [SongModel] = []
-    
     private var player = AVPlayer()
-    
     private var session = AVAudioSession.sharedInstance()
-    
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
@@ -40,9 +36,19 @@ class MusicPlayerService {
     }
     
     func updateCurrentTime(to seconds: Float) {
-        let seconds: Int64 = Int64(seconds)
-        let targetTime: CMTime = CMTimeMake(value: seconds, timescale: 1)
+        let seconds = Int64(seconds)
+        let targetTime = CMTimeMake(value: seconds, timescale: 1)
         player.seek(to: targetTime)
+        if player.rate == 0 {
+            player.play()
+        }
+    }
+    
+    func skipTime(_ direction: TimeMovingDirection) {
+        let currentSeconds = Int64(player.currentTime().seconds)
+        let destinationSeconds = currentSeconds + direction.seconds
+        let destinationTime = CMTimeMake(value: destinationSeconds, timescale: 1)
+        player.seek(to: destinationTime)
         if player.rate == 0 {
             player.play()
         }
@@ -59,7 +65,7 @@ extension MusicPlayerService {
     
     private func setupPlayer(withSong song: SongModel?) {
         guard let song else { return }
-        let playerItem = AVPlayerItem(url: song.songURL)
+        let playerItem = AVPlayerItem(url: song.url)
         player.replaceCurrentItem(with: playerItem)
         player.volume = 1.0
         

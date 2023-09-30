@@ -48,7 +48,7 @@ extension SongOptionsViewController {
         viewModel.$song
             .receive(on: DispatchQueue.main)
             .sink { [weak self] song in
-                self?.rootView.titleLabel.text = song.trackName
+                self?.title = song.name
                 self?.rootView.subtitleLabel.text = song.artistName
             }.store(in: &subscriptions)
     }

@@ -35,7 +35,7 @@ class TSASlider: UISlider {
     
     func setupThumbImage() {
         setThumbImage(thumbImage(withDiameter: thumbDiameter), for: .normal)
-        setThumbImage(thumbImage(withDiameter: thumbDiameter * 1.2), for: .highlighted)
+        setThumbImage(thumbImage(withDiameter: thumbDiameter * 1.4), for: .highlighted)
     }
     
     private func thumbImage(withDiameter diameter: CGFloat) -> UIImage? {

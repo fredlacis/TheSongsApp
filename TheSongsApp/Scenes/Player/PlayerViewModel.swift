@@ -38,6 +38,10 @@ final class PlayerViewModel {
         musicPlayer.updateCurrentTime(to: seconds)
     }
     
+    func skipTime(_ direction: TimeMovingDirection) {
+        musicPlayer.skipTime(direction)
+    }
+    
     private func setupServiceBindings() {
         musicPlayer.$songDuration.combineLatest(musicPlayer.$currentSongPlaybackTime)
             .sink { [weak self] songDuration, currentSongPlaybackTime in

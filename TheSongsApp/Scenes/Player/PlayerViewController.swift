@@ -55,6 +55,8 @@ extension PlayerViewController {
     private func setupTargetActions() {
         rootView.playPauseButton.addTarget(self, action: #selector(toggleSongPlaybackState), for: .touchUpInside)
         rootView.timelineSlider.addTarget(self, action: #selector(playbackSliderValueChanged(_:)), for: .valueChanged)
+        rootView.forwardButton.addTarget(self, action: #selector(skipTimeForwards), for: .touchUpInside)
+        rootView.backwardButton.addTarget(self, action: #selector(skipTimeBackwards), for: .touchUpInside)
     }
     
     private func setupBindings() {
@@ -63,7 +65,7 @@ extension PlayerViewController {
             .sink { [weak self] song in
                 self?.viewModel.updateCurrentSong()
                 self?.rootView.artworkImageView.image = song.artwork
-                self?.rootView.titleLabel.text = song.trackName
+                self?.rootView.titleLabel.text = song.name
                 self?.rootView.artistLabel.text = song.artistName
             }.store(in: &subscriptions)
         
@@ -71,7 +73,7 @@ extension PlayerViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isPlaying in
                 let buttonImage = UIImage(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                self?.rootView.playPauseButton.setImage(buttonImage, for: .normal)
+                self?.rootView.playPauseButton.setImageWithTransition(buttonImage, for: .normal)
             }.store(in: &subscriptions)
         
         viewModel.$currentSongPlaybackTime
@@ -111,6 +113,14 @@ extension PlayerViewController {
     
     @objc private func toggleSongPlaybackState() {
         viewModel.toggleSongPlaybackState()
+    }
+    
+    @objc private func skipTimeForwards() {
+        viewModel.skipTime(.forward)
+    }
+    
+    @objc private func skipTimeBackwards() {
+        viewModel.skipTime(.backward)
     }
     
     @objc private func displaySongOptions() {

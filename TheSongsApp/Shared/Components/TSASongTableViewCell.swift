@@ -16,7 +16,7 @@ class TSASongTableViewCell: UITableViewCell {
         
         var content = defaultContentConfiguration().updated(for: state)
         
-        content.text = song.trackName
+        content.text = song.name
         content.textProperties.font = .systemFont(ofSize: 16.0)
         
         content.secondaryText = song.artistName

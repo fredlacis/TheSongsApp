@@ -38,8 +38,9 @@ class SongsCoordinator: CoordinatorProtocol {
     func displaySongOptions(_ song: SongModel) {
         let songOptionsViewModel = SongOptionsViewModel(song: song)
         let songOptionsViewController = SongOptionsViewController(viewModel: songOptionsViewModel)
+        let songOptionsViewNavigationController = UINavigationController(rootViewController: songOptionsViewController)
         songOptionsViewController.coordinator = self
-        navigationController.present(songOptionsViewController, animated: true)
+        navigationController.present(songOptionsViewNavigationController, animated: true)
     }
     
     func presentAlbumDetails(_ album: AlbumModel) {
@@ -47,9 +48,8 @@ class SongsCoordinator: CoordinatorProtocol {
         let albumSongsViewController = AlbumSongsViewController(viewModel: albumSongsViewModel)
         let albumSongsNavigationController = UINavigationController(rootViewController: albumSongsViewController)
         albumSongsViewController.coordinator = self
-        navigationController.dismiss(animated: true) { [weak self] in
-            self?.navigationController.present(albumSongsNavigationController, animated: true)
-        }
+        navigationController.dismiss(animated: true)
+        navigationController.present(albumSongsNavigationController, animated: true)
     }
     
 }

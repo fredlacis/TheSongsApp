@@ -8,7 +8,7 @@
 import Foundation
 
 struct AlbumModel {
-    let albumID: String
-    let albumName: String
+    let id: String
+    let name: String
     var songs: [SongModel] = []
 }

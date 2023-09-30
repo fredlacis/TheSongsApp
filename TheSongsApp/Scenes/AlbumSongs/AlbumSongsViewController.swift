@@ -35,9 +35,14 @@ class AlbumSongsViewController: UITableViewController {
 extension AlbumSongsViewController {
     
     private func setupView() {
+        setupAppearence()
         setupTableView()
         setupNavigationBar()
         setupBindings()
+    }
+    
+    private func setupAppearence() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setupTableView() {
@@ -46,8 +51,8 @@ extension AlbumSongsViewController {
     }
     
     private func setupNavigationBar() {
-//        navigationController?.navigationBar.prefersLargeTitles = false
-        title = viewModel.album.albumName
+        title = viewModel.album.name
+        sheetPresentationController?.prefersGrabberVisible = true
     }
     
     private func setupBindings() {
