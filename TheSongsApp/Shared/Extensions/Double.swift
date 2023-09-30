@@ -19,7 +19,7 @@ extension Double {
             return String(format: "%i:%02i:%02i", hours, minutes, seconds)
         }
         
-        return String(format: "%02i:%02i", minutes, seconds)
+        return String(format: "%i:%02i", minutes, seconds)
     }
     
 }

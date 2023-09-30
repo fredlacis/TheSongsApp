@@ -23,8 +23,11 @@ final class PlayerViewModel {
     
     init(song: SongModel) {
         self.song = song
-        musicPlayer.currentSong = song
         setupServiceBindings()
+    }
+    
+    func updateCurrentSong() {
+        musicPlayer.currentSong = song
     }
     
     func toggleSongPlaybackState() {

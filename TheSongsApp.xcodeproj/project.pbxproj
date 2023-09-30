@@ -49,6 +49,10 @@
 		D460DBC52AC7A58E009A9959 /* SongOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBC42AC7A58E009A9959 /* SongOptionsView.swift */; };
 		D460DBC72AC7A5A6009A9959 /* SongOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBC62AC7A5A6009A9959 /* SongOptionsViewController.swift */; };
 		D460DBC92AC7A5B1009A9959 /* SongOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBC82AC7A5B1009A9959 /* SongOptionsViewModel.swift */; };
+		D460DBCD2AC8A9FA009A9959 /* TSASongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBCC2AC8A9FA009A9959 /* TSASongTableViewCell.swift */; };
+		D460DBD02AC8AB3C009A9959 /* AlbumSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBCF2AC8AB3C009A9959 /* AlbumSongsViewController.swift */; };
+		D460DBD22AC8AB46009A9959 /* AlbumSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */; };
+		D460DBD42AC8AC9C009A9959 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,10 @@
 		D460DBC42AC7A58E009A9959 /* SongOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOptionsView.swift; sourceTree = "<group>"; };
 		D460DBC62AC7A5A6009A9959 /* SongOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOptionsViewController.swift; sourceTree = "<group>"; };
 		D460DBC82AC7A5B1009A9959 /* SongOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOptionsViewModel.swift; sourceTree = "<group>"; };
+		D460DBCC2AC8A9FA009A9959 /* TSASongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSASongTableViewCell.swift; sourceTree = "<group>"; };
+		D460DBCF2AC8AB3C009A9959 /* AlbumSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongsViewController.swift; sourceTree = "<group>"; };
+		D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongsViewModel.swift; sourceTree = "<group>"; };
+		D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +239,7 @@
 				D460DB6F2AC3B510009A9959 /* SongSearch */,
 				D460DBAC2AC64733009A9959 /* Player */,
 				D460DBC32AC7A581009A9959 /* SongOptions */,
+				D460DBCE2AC8AB1B009A9959 /* AlbumSongs */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -277,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DB812AC3C644009A9959 /* SongModel.swift */,
+				D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DBB62AC7152A009A9959 /* TSASlider.swift */,
+				D460DBCC2AC8A9FA009A9959 /* TSASongTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -384,6 +395,15 @@
 				D460DBC82AC7A5B1009A9959 /* SongOptionsViewModel.swift */,
 			);
 			path = SongOptions;
+			sourceTree = "<group>";
+		};
+		D460DBCE2AC8AB1B009A9959 /* AlbumSongs */ = {
+			isa = PBXGroup;
+			children = (
+				D460DBCF2AC8AB3C009A9959 /* AlbumSongsViewController.swift */,
+				D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */,
+			);
+			path = AlbumSongs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,6 +554,7 @@
 				D460DBA92AC643D9009A9959 /* AplicationCoordinator.swift in Sources */,
 				D460DBBC2AC734A5009A9959 /* MusicPlayerService.swift in Sources */,
 				D460DB892AC4D787009A9959 /* ITunesAPISongsListDTO.swift in Sources */,
+				D460DBD42AC8AC9C009A9959 /* AlbumModel.swift in Sources */,
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
 				D460DB9E2AC605C8009A9959 /* ImagesRepositoryInjection.swift in Sources */,
 				D460DBA02AC6060B009A9959 /* SongsRepositoryInjection.swift in Sources */,
@@ -545,10 +566,13 @@
 				D460DB902AC4FF07009A9959 /* LossyDecodableList.swift in Sources */,
 				D460DBC92AC7A5B1009A9959 /* SongOptionsViewModel.swift in Sources */,
 				D460DBA42AC6084F009A9959 /* WebServiceInjection.swift in Sources */,
+				D460DBD02AC8AB3C009A9959 /* AlbumSongsViewController.swift in Sources */,
 				D460DB822AC3C644009A9959 /* SongModel.swift in Sources */,
 				D460DBA22AC60800009A9959 /* WebServiceProtocol.swift in Sources */,
 				D460DB772AC3C19F009A9959 /* WebService.swift in Sources */,
 				D460DBC52AC7A58E009A9959 /* SongOptionsView.swift in Sources */,
+				D460DBCD2AC8A9FA009A9959 /* TSASongTableViewCell.swift in Sources */,
+				D460DBD22AC8AB46009A9959 /* AlbumSongsViewModel.swift in Sources */,
 				D460DB712AC3B532009A9959 /* SongSearchViewController.swift in Sources */,
 				D460DB8B2AC4D797009A9959 /* ITunesAPISongDTO.swift in Sources */,
 				D460DBAB2AC645E7009A9959 /* SongsCoordinator.swift in Sources */,

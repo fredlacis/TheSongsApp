@@ -23,16 +23,33 @@ class SongsCoordinator: CoordinatorProtocol {
     }
     
     func selectSong(_ song: SongModel) {
-        let playerViewModel = PlayerViewModel(song: song)
-        let playerViewController = PlayerViewController(viewModel: playerViewModel)
-        playerViewController.coordinator = self
-        navigationController.pushViewController(playerViewController, animated: true)
+        if let playerViewController = navigationController.viewControllers.first(where: { $0 is PlayerViewController }) as? PlayerViewController {
+            playerViewController.viewModel.song = song
+            navigationController.dismiss(animated: true)
+            navigationController.popToViewController(playerViewController, animated: true)
+        } else {
+            let playerViewModel = PlayerViewModel(song: song)
+            let playerViewController = PlayerViewController(viewModel: playerViewModel)
+            playerViewController.coordinator = self
+            navigationController.pushViewController(playerViewController, animated: true)
+        }
     }
     
     func displaySongOptions(_ song: SongModel) {
         let songOptionsViewModel = SongOptionsViewModel(song: song)
         let songOptionsViewController = SongOptionsViewController(viewModel: songOptionsViewModel)
+        songOptionsViewController.coordinator = self
         navigationController.present(songOptionsViewController, animated: true)
+    }
+    
+    func presentAlbumDetails(_ album: AlbumModel) {
+        let albumSongsViewModel = AlbumSongsViewModel(album: album)
+        let albumSongsViewController = AlbumSongsViewController(viewModel: albumSongsViewModel)
+        let albumSongsNavigationController = UINavigationController(rootViewController: albumSongsViewController)
+        albumSongsViewController.coordinator = self
+        navigationController.dismiss(animated: true) { [weak self] in
+            self?.navigationController.present(albumSongsNavigationController, animated: true)
+        }
     }
     
 }

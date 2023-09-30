@@ -12,6 +12,6 @@ struct SongModel {
     let artistName: String
     let songURL: URL
     let artworkURL: String
-    let albumID: String
+    let album: AlbumModel
     var artwork: UIImage = UIImage(named: "trackImagePlaceholder")!
 }

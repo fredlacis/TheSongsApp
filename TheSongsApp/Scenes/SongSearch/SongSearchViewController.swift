@@ -35,7 +35,7 @@ extension SongSearchViewController {
     }
     
     private func setupTableView() {
-        tableView.register(UITableViewCell.self)
+        tableView.register(TSASongTableViewCell.self)
         tableView.separatorStyle = .none
     }
     
@@ -88,29 +88,9 @@ extension SongSearchViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(ofType: UITableViewCell.self, for: indexPath) else { return UITableViewCell() }
-        
-        let song = viewModel.songs[indexPath.row]
-        
-        cell.selectionStyle = .none
-        
-        cell.configurationUpdateHandler = { cell, state in
-            var content = cell.defaultContentConfiguration().updated(for: state)
-            
-            content.text = song.trackName
-            content.textProperties.font = .systemFont(ofSize: 16.0)
-            
-            content.secondaryText = song.artistName
-            content.secondaryTextProperties.color = .systemGray
-            content.secondaryTextProperties.font = .systemFont(ofSize: 14.0)
-            
-            content.image = song.artwork
-            content.imageProperties.cornerRadius = 8.0
-            content.imageProperties.maximumSize = .init(width: 44.0, height: 44.0)
-            
-            cell.contentConfiguration = content
-        }
-        
+        guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath) else { return UITableViewCell() }
+        cell.song = viewModel.songs[indexPath.row]
+        cell.setNeedsUpdateConfiguration()
         return cell
     }
     

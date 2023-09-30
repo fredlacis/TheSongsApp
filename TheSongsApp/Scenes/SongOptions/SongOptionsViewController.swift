@@ -68,7 +68,7 @@ extension SongOptionsViewController {
 extension SongOptionsViewController {
     
     @objc private func openAlbumDetails() {
-        
+        coordinator?.presentAlbumDetails(viewModel.song.album)
     }
     
 }
