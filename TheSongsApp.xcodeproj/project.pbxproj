@@ -44,6 +44,8 @@
 		D460DBB42AC6562C009A9959 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB32AC6562C009A9959 /* PlayerView.swift */; };
 		D460DBB72AC7152A009A9959 /* TSASlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB62AC7152A009A9959 /* TSASlider.swift */; };
 		D460DBB92AC71F53009A9959 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB82AC71F53009A9959 /* UINavigationController.swift */; };
+		D460DBBC2AC734A5009A9959 /* MusicPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBBB2AC734A5009A9959 /* MusicPlayerService.swift */; };
+		D460DBC22AC75F5C009A9959 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBC12AC75F5C009A9959 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		D460DBB32AC6562C009A9959 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D460DBB62AC7152A009A9959 /* TSASlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSASlider.swift; sourceTree = "<group>"; };
 		D460DBB82AC71F53009A9959 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		D460DBBB2AC734A5009A9959 /* MusicPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerService.swift; sourceTree = "<group>"; };
+		D460DBC12AC75F5C009A9959 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D460DB6B2AC25D94009A9959 /* Application */,
+				D460DBBA2AC7348D009A9959 /* Services */,
 				D460DB802AC3C62A009A9959 /* Model */,
 				D460DB752AC3C166009A9959 /* Network */,
 				D460DB7D2AC3C5CF009A9959 /* Repositories */,
@@ -314,6 +319,7 @@
 				D460DB942AC5C099009A9959 /* UITableViewCell.swift */,
 				D460DB962AC5C129009A9959 /* UITableView.swift */,
 				D460DBB82AC71F53009A9959 /* UINavigationController.swift */,
+				D460DBC12AC75F5C009A9959 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +359,14 @@
 				D460DBB62AC7152A009A9959 /* TSASlider.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D460DBBA2AC7348D009A9959 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D460DBBB2AC734A5009A9959 /* MusicPlayerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,8 +511,10 @@
 				D460DBB92AC71F53009A9959 /* UINavigationController.swift in Sources */,
 				D460DB3C2AC2585D009A9959 /* AppDelegate.swift in Sources */,
 				D460DB8D2AC4DC8B009A9959 /* DTOProtocol.swift in Sources */,
+				D460DBC22AC75F5C009A9959 /* Double.swift in Sources */,
 				D460DB9A2AC60324009A9959 /* ImagesRepository.swift in Sources */,
 				D460DBA92AC643D9009A9959 /* AplicationCoordinator.swift in Sources */,
+				D460DBBC2AC734A5009A9959 /* MusicPlayerService.swift in Sources */,
 				D460DB892AC4D787009A9959 /* ITunesAPISongsListDTO.swift in Sources */,
 				D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */,
 				D460DB9E2AC605C8009A9959 /* ImagesRepositoryInjection.swift in Sources */,

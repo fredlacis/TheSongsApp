@@ -10,7 +10,7 @@ import UIKit
 struct SongModel {
     let trackName: String
     let artistName: String
-    let songURL: String
+    let songURL: URL
     let artworkURL: String
     let albumID: String
     var artwork: UIImage = UIImage(named: "trackImagePlaceholder")!

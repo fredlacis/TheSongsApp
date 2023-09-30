@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Combine
+//import CoreMedia
 
 class PlayerViewController: BaseViewController<PlayerView> {
     
     let viewModel: PlayerViewModel
+    private var subscriptions = Set<AnyCancellable>()
     
     init(viewModel: PlayerViewModel) {
         self.viewModel = viewModel
@@ -22,7 +25,18 @@ class PlayerViewController: BaseViewController<PlayerView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+}
+
+// MARK: Setup Methods
+extension PlayerViewController {
+    
+    private func setupView() {
         setupOptionsButton()
+        setupTargetActions()
+        setupBindings()
     }
     
     private func setupOptionsButton() {
@@ -32,6 +46,66 @@ class PlayerViewController: BaseViewController<PlayerView> {
             .withTintColor(.label)
             .withRenderingMode(.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: verticalEllipsisImage, style: .plain, target: nil, action: nil)
+    }
+    
+    private func setupTargetActions() {
+        rootView.playPauseButton.addTarget(self, action: #selector(toggleSongPlaybackState), for: .touchUpInside)
+        rootView.timelineSlider.addTarget(self, action: #selector(playbackSliderValueChanged(_:)), for: .valueChanged)
+    }
+    
+    private func setupBindings() {
+        viewModel.$song
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] song in
+                self?.rootView.artworkImageView.image = song.artwork
+                self?.rootView.titleLabel.text = song.trackName
+                self?.rootView.artistLabel.text = song.artistName
+            }.store(in: &subscriptions)
+        
+        viewModel.$isPlaying
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isPlaying in
+                let buttonImage = UIImage(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                self?.rootView.playPauseButton.setImage(buttonImage, for: .normal)
+            }.store(in: &subscriptions)
+        
+        viewModel.$currentSongPlaybackTime
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] currentSongPlaybackTime in
+                guard let self, !self.rootView.timelineSlider.isTracking else { return }
+                self.rootView.timelineSlider.setValue(currentSongPlaybackTime, animated: true)
+            }.store(in: &subscriptions)
+        
+        viewModel.$ellapsedSongTime
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] ellapsedSongTime in
+                self?.rootView.elapsedTimeLabel.text = ellapsedSongTime
+            }.store(in: &subscriptions)
+        
+        viewModel.$remainingSongTime
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] remainingSongTime in
+                self?.rootView.remainingTimeLabel.text = remainingSongTime
+            }.store(in: &subscriptions)
+        
+        viewModel.$totalSongTime
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] totalSongTime in
+                self?.rootView.timelineSlider.maximumValue = totalSongTime
+            }.store(in: &subscriptions)
+    }
+    
+}
+
+// MARK: @objc Methods
+extension PlayerViewController {
+    
+    @objc func playbackSliderValueChanged(_ timelineSlider: UISlider) {
+        viewModel.updateSongPlaybackTime(to: timelineSlider.value)
+    }
+    
+    @objc private func toggleSongPlaybackState() {
+        viewModel.toggleSongPlaybackState()
     }
     
 }

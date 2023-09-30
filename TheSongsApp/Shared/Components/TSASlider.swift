@@ -34,13 +34,12 @@ class TSASlider: UISlider {
     }
     
     func setupThumbImage() {
-        let thumbImage = thumbImage()
-        setThumbImage(thumbImage, for: .normal)
-        setThumbImage(thumbImage, for: .highlighted)
+        setThumbImage(thumbImage(withDiameter: thumbDiameter), for: .normal)
+        setThumbImage(thumbImage(withDiameter: thumbDiameter * 1.2), for: .highlighted)
     }
     
-    private func thumbImage() -> UIImage? {
-        let configuration = UIImage.SymbolConfiguration(pointSize: thumbDiameter)
+    private func thumbImage(withDiameter diameter: CGFloat) -> UIImage? {
+        let configuration = UIImage.SymbolConfiguration(pointSize: diameter)
         let image = UIImage(systemName: "circle.fill", withConfiguration: configuration)
         return image?.withTintColor(thumbTintColor ?? .label).withRenderingMode(.alwaysOriginal)
     }

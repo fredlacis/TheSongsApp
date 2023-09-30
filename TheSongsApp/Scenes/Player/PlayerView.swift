@@ -20,6 +20,8 @@ class PlayerView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "trackImagePlaceholder")
+        imageView.layer.cornerRadius = 40
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -33,10 +35,6 @@ class PlayerView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 24.0)
-        
-        #warning("placeholder")
-        label.text = "Something"
-        
         return label
     }()
     
@@ -45,10 +43,6 @@ class PlayerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14.0)
         label.textColor = .systemGray
-        
-        #warning("placeholder")
-        label.text = "Artist"
-        
         return label
     }()
     
@@ -57,6 +51,7 @@ class PlayerView: UIView {
         slider.thumbTintColor = .label
         slider.minimumTrackTintColor = .label
         slider.maximumTrackTintColor = .systemGray
+        slider.isContinuous = false
         return slider
     }()
     
@@ -65,10 +60,6 @@ class PlayerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14.0, weight: .medium)
         label.textColor = .systemGray
-        
-        #warning("placeholder")
-        label.text = "0:00"
-        
         return label
     }()
     
@@ -77,10 +68,6 @@ class PlayerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14.0, weight: .medium)
         label.textColor = .systemGray
-        
-        #warning("placeholder")
-        label.text = "-3:20"
-        
         return label
     }()
     
@@ -162,7 +149,7 @@ class PlayerView: UIView {
             artworkImageView.centerYAnchor.constraint(equalTo: artworkContainerView.centerYAnchor),
             artworkImageView.centerXAnchor.constraint(equalTo: artworkContainerView.centerXAnchor),
             artworkImageView.widthAnchor.constraint(equalTo: artworkContainerView.widthAnchor, multiplier: 0.51),
-            artworkImageView.heightAnchor.constraint(equalTo: artworkImageView.heightAnchor),
+            artworkImageView.heightAnchor.constraint(equalTo: artworkImageView.widthAnchor),
         ])
     }
     

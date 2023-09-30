@@ -26,9 +26,10 @@ struct ITunesAPISongDTO: Decodable, DTOProtocol {
     }
     
     func map() -> SongModel? {
+        guard let songURL =  URL(string: previewURL) else { return nil }
         return SongModel(trackName: trackName,
                          artistName: artistName,
-                         songURL: previewURL,
+                         songURL: songURL,
                          artworkURL: artworkUrl100,
                          albumID: "\(collectionID)")
     }
