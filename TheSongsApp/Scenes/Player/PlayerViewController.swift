@@ -7,9 +7,10 @@
 
 import UIKit
 import Combine
-//import CoreMedia
 
 class PlayerViewController: BaseViewController<PlayerView> {
+    
+    var coordinator: SongsCoordinator?
     
     let viewModel: PlayerViewModel
     private var subscriptions = Set<AnyCancellable>()
@@ -45,7 +46,10 @@ extension PlayerViewController {
         let verticalEllipsisImage = UIImage(cgImage: ellipsisCGImage, scale: ellipsisImage.scale, orientation: .right)
             .withTintColor(.label)
             .withRenderingMode(.alwaysOriginal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: verticalEllipsisImage, style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: verticalEllipsisImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(displaySongOptions))
     }
     
     private func setupTargetActions() {
@@ -100,12 +104,16 @@ extension PlayerViewController {
 // MARK: @objc Methods
 extension PlayerViewController {
     
-    @objc func playbackSliderValueChanged(_ timelineSlider: UISlider) {
+    @objc private func playbackSliderValueChanged(_ timelineSlider: UISlider) {
         viewModel.updateSongPlaybackTime(to: timelineSlider.value)
     }
     
     @objc private func toggleSongPlaybackState() {
         viewModel.toggleSongPlaybackState()
+    }
+    
+    @objc private func displaySongOptions() {
+        coordinator?.displaySongOptions(viewModel.song)
     }
     
 }

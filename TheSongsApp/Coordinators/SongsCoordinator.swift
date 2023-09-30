@@ -17,15 +17,22 @@ class SongsCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let entryPoint = SongSearchViewController()
-        entryPoint.coordinator = self
-        navigationController.setViewControllers([entryPoint], animated: true)
+        let songSearchViewController = SongSearchViewController()
+        songSearchViewController.coordinator = self
+        navigationController.setViewControllers([songSearchViewController], animated: true)
     }
     
     func selectSong(_ song: SongModel) {
         let playerViewModel = PlayerViewModel(song: song)
-        let playerView = PlayerViewController(viewModel: playerViewModel)
-        navigationController.pushViewController(playerView, animated: true)
+        let playerViewController = PlayerViewController(viewModel: playerViewModel)
+        playerViewController.coordinator = self
+        navigationController.pushViewController(playerViewController, animated: true)
+    }
+    
+    func displaySongOptions(_ song: SongModel) {
+        let songOptionsViewModel = SongOptionsViewModel(song: song)
+        let songOptionsViewController = SongOptionsViewController(viewModel: songOptionsViewModel)
+        navigationController.present(songOptionsViewController, animated: true)
     }
     
 }
