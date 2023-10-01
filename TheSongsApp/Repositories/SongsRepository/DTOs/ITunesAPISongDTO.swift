@@ -31,7 +31,8 @@ struct ITunesAPISongDTO: Decodable, DTOProtocol {
         let album = AlbumModel(id: "\(collectionID)",
                                name: collectionName)
         
-        return SongModel(url: songURL,
+        return SongModel(id: trackID,
+                         url: songURL,
                          name: trackName,
                          album: album,
                          artistName: artistName,

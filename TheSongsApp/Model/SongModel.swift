@@ -7,11 +7,20 @@
 
 import UIKit
 
-struct SongModel {
+struct SongModel: Hashable {
+    let id: Int
     let url: URL
     let name: String
     let album: AlbumModel
     let artistName: String
     let artworkURL: String
-    var artwork: UIImage = UIImage(named: "trackImagePlaceholder")!
+    var artwork: UIImage?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: SongModel, rhs: SongModel) -> Bool {
+        lhs.id == rhs.id
+    }
 }

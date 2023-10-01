@@ -55,6 +55,7 @@
 		D460DBD42AC8AC9C009A9959 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */; };
 		D460DBD62AC8BA48009A9959 /* TimeMovingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */; };
 		D460DBD82AC8C10D009A9959 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD72AC8C10D009A9959 /* UIButton.swift */; };
+		D460DBDD2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBDC2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMovingDirection.swift; sourceTree = "<group>"; };
 		D460DBD72AC8C10D009A9959 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		D460DBDC2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSASongTableViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,8 +381,8 @@
 		D460DBB52AC71506009A9959 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D460DBDB2AC9F667009A9959 /* TSASongTableViewCell */,
 				D460DBB62AC7152A009A9959 /* TSASlider.swift */,
-				D460DBCC2AC8A9FA009A9959 /* TSASongTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -410,6 +412,15 @@
 				D460DBD12AC8AB46009A9959 /* AlbumSongsViewModel.swift */,
 			);
 			path = AlbumSongs;
+			sourceTree = "<group>";
+		};
+		D460DBDB2AC9F667009A9959 /* TSASongTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D460DBCC2AC8A9FA009A9959 /* TSASongTableViewCell.swift */,
+				D460DBDC2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift */,
+			);
+			path = TSASongTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,6 +561,7 @@
 				D460DB922AC5C02D009A9959 /* ReusableCellProtocol.swift in Sources */,
 				D460DBB02AC6474D009A9959 /* PlayerViewModel.swift in Sources */,
 				D460DB7F2AC3C609009A9959 /* SongsRepository.swift in Sources */,
+				D460DBDD2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift in Sources */,
 				D460DB9C2AC603AF009A9959 /* RemoteImagesRepository.swift in Sources */,
 				D460DBB92AC71F53009A9959 /* UINavigationController.swift in Sources */,
 				D460DBD62AC8BA48009A9959 /* TimeMovingDirection.swift in Sources */,

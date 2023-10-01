@@ -14,6 +14,7 @@ class SongSearchViewController: UITableViewController {
 
     private let viewModel = SongSearchViewModel()
     private var subscriptions = Set<AnyCancellable>()
+    private var diffableDataSource: UITableViewDiffableDataSource<Int, SongModel>?
     
     private let searchController = UISearchController()
     
@@ -37,6 +38,9 @@ extension SongSearchViewController {
     private func setupTableView() {
         tableView.register(TSASongTableViewCell.self)
         tableView.separatorStyle = .none
+        tableView.prefetchDataSource = self
+        tableViewDiffableDataSource()
+        tableView.dataSource = diffableDataSource
     }
     
     private func setupSearchController() {
@@ -54,11 +58,32 @@ extension SongSearchViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func setupActivityIndicatorFooterView(isLoading: Bool) {
+        guard isLoading else {
+            tableView.tableFooterView = nil
+            return
+        }
+        let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+        activityIndicatorView.startAnimating()
+        tableView.tableFooterView = activityIndicatorView
+    }
+    
     private func setupBindings() {
         viewModel.$songs
             .receive(on: DispatchQueue.main)
             .sink { [weak self] songs in
-                self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+                guard let self else { return }
+                var diffableSnapshot = NSDiffableDataSourceSnapshot<Int, SongModel>()
+                diffableSnapshot.appendSections([0])
+                diffableSnapshot.appendItems(songs)
+                self.diffableDataSource?.apply(diffableSnapshot)
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                self?.setupActivityIndicatorFooterView(isLoading: isLoading)
             }
             .store(in: &subscriptions)
     }
@@ -80,27 +105,43 @@ extension SongSearchViewController: UISearchResultsUpdating, UISearchBarDelegate
     
 }
 
-// MARK: UI Table View Data Source
-extension SongSearchViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.songs.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath) else { return UITableViewCell() }
-        cell.song = viewModel.songs[indexPath.row]
-        cell.setNeedsUpdateConfiguration()
-        return cell
-    }
-    
-}
-
 // MARK: UI Table View Delegate
 extension SongSearchViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.selectSong(viewModel.songs[indexPath.row])
+    }
+    
+}
+
+// MARK: UI Table View Diffable Data Source
+extension SongSearchViewController {
+    
+    private func tableViewDiffableDataSource() {
+        diffableDataSource = UITableViewDiffableDataSource<Int, SongModel>(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
+            guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath),
+                  let song = self?.viewModel.songs[indexPath.row] else { return UITableViewCell() }
+            cell.configure(withSong: song)
+            return cell
+        }
+    }
+    
+}
+
+// MARK: UI Table View Data Source Prefetching
+extension SongSearchViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { viewModel.prefetchSongArtwork(atIndex: $0.row) }
+    }
+    
+}
+
+extension SongSearchViewController {
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.bounds.height else { return }
+        viewModel.loadNextPage()
     }
     
 }

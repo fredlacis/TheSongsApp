@@ -8,7 +8,7 @@
 import Foundation
 
 enum ITunesAPIEndpoint: Endpoint {
-    case searchMusic(_ searchTerm: String, offset: Int = 0)
+    case searchMusic(_ searchTerm: String, limit: Int, offset: Int = 0)
     case lookupAlbum(_ albumID: String)
     
     var scheme: String {
@@ -21,7 +21,7 @@ enum ITunesAPIEndpoint: Endpoint {
     
     var path: String {
         switch self {
-            case .searchMusic(_, _):
+            case .searchMusic(_, _, _):
                 return "/search"
             case .lookupAlbum(_):
                 return "/lookup"
@@ -30,10 +30,10 @@ enum ITunesAPIEndpoint: Endpoint {
     
     var parameters: [URLQueryItem] {
         switch self {
-            case .searchMusic(let searchTerm, let offset):
+            case .searchMusic(let searchTerm, let limit, let offset):
                 return [
                     URLQueryItem(name: "media", value: "music"),
-                    URLQueryItem(name: "limit", value: "15"),
+                    URLQueryItem(name: "limit", value: "\(limit)"),
                     URLQueryItem(name: "offset", value: "\(offset)"),
                     URLQueryItem(name: "term", value: searchTerm.replacingOccurrences(of: " ", with: "+")),
                 ]

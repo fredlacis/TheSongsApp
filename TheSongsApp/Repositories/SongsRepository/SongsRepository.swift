@@ -11,7 +11,7 @@ protocol SongsRepository {
     
     typealias SongsCompletion = (Result<[SongModel], Error>) -> Void
     
-    func searchSongs(byTerm: String, completion: @escaping SongsCompletion)
+    func searchSongs(byTerm: String, page: Int, completion: @escaping SongsCompletion)
     
     func getAlbumSongs(byID: String, completion: @escaping SongsCompletion)
     

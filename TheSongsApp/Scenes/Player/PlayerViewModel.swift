@@ -8,7 +8,7 @@
 import Combine
 import CoreMedia
 
-final class PlayerViewModel {
+final class PlayerViewModel: ImagesRepositoryInjection {
     
     private let musicPlayer = MusicPlayerService()
     
@@ -24,6 +24,7 @@ final class PlayerViewModel {
     init(song: SongModel) {
         self.song = song
         setupServiceBindings()
+        getSongArtwork()
     }
     
     func updateCurrentSong() {
@@ -40,6 +41,17 @@ final class PlayerViewModel {
     
     func skipTime(_ direction: TimeMovingDirection) {
         musicPlayer.skipTime(direction)
+    }
+    
+    func getSongArtwork() {
+        imagesRepository.loadImage(from: song.artworkURL) { [weak self] result in
+            switch result {
+                case .success(let image):
+                    self?.song.artwork = image
+                case .failure(let error):
+                    debugPrint(error)
+            }
+        }
     }
     
     private func setupServiceBindings() {

@@ -64,9 +64,11 @@ extension PlayerViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] song in
                 self?.viewModel.updateCurrentSong()
-                self?.rootView.artworkImageView.image = song.artwork
                 self?.rootView.titleLabel.text = song.name
                 self?.rootView.artistLabel.text = song.artistName
+                if let artwork = song.artwork {
+                    self?.rootView.artworkImageView.image = artwork
+                }
             }.store(in: &subscriptions)
         
         viewModel.$isPlaying

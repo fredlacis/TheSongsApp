@@ -75,8 +75,7 @@ extension AlbumSongsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath) else { return UITableViewCell() }
-        cell.song = viewModel.album.songs[indexPath.row]
-        cell.setNeedsUpdateConfiguration()
+        cell.configure(withSong: viewModel.album.songs[indexPath.row])
         return cell
     }
     
