@@ -30,8 +30,9 @@ extension SongSearchViewController {
     
     private func setupView() {
         setupTableView()
-        setupSearchController()
+        setupTargetActions()
         setupNavigationBar()
+        setupSearchController()
         setupBindings()
     }
     
@@ -39,6 +40,7 @@ extension SongSearchViewController {
         tableView.register(TSASongTableViewCell.self)
         tableView.separatorStyle = .none
         tableView.prefetchDataSource = self
+        refreshControl = UIRefreshControl()
         tableViewDiffableDataSource()
         tableView.dataSource = diffableDataSource
     }
@@ -58,6 +60,10 @@ extension SongSearchViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func setupTargetActions() {
+        tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+    }
+    
     private func setupActivityIndicatorFooterView(isLoading: Bool) {
         guard isLoading else {
             tableView.tableFooterView = nil
@@ -72,11 +78,10 @@ extension SongSearchViewController {
         viewModel.$songs
             .receive(on: DispatchQueue.main)
             .sink { [weak self] songs in
-                guard let self else { return }
                 var diffableSnapshot = NSDiffableDataSourceSnapshot<Int, SongModel>()
                 diffableSnapshot.appendSections([0])
                 diffableSnapshot.appendItems(songs)
-                self.diffableDataSource?.apply(diffableSnapshot)
+                self?.diffableDataSource?.apply(diffableSnapshot)
             }
             .store(in: &subscriptions)
         
@@ -84,6 +89,7 @@ extension SongSearchViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 self?.setupActivityIndicatorFooterView(isLoading: isLoading)
+                self?.refreshControl?.endRefreshing()
             }
             .store(in: &subscriptions)
     }
@@ -137,11 +143,21 @@ extension SongSearchViewController: UITableViewDataSourcePrefetching {
     
 }
 
+// MARK: UI Scroll View Delegate
 extension SongSearchViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.bounds.height else { return }
+        guard scrollView.isBoucingOnBottom else { return }
         viewModel.loadNextPage()
+    }
+    
+}
+
+// MARK: @objc Methods
+extension SongSearchViewController {
+    
+    @objc private func pullToRefresh() {
+        viewModel.searchSongs(byTerm: nil)
     }
     
 }

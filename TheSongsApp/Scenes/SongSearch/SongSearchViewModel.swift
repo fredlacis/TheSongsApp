@@ -15,11 +15,11 @@ final class SongSearchViewModel: SongsRepositoryInjection, ImagesRepositoryInjec
     var currentSearchTerm: String = ""
     var currentLoadedPage: Int = 0
     
-    func searchSongs(byTerm term: String) {
-        currentSearchTerm = term
+    func searchSongs(byTerm term: String?) {
+        currentSearchTerm = term ?? currentSearchTerm
         currentLoadedPage = 0
         isLoading = true
-        songsRepository.searchSongs(byTerm: term, page: currentLoadedPage) { [weak self] result in
+        songsRepository.searchSongs(byTerm: currentSearchTerm, page: currentLoadedPage) { [weak self] result in
             switch result {
                 case .success(let songs):
                     self?.songs = songs

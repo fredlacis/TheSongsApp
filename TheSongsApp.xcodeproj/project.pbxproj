@@ -56,6 +56,7 @@
 		D460DBD62AC8BA48009A9959 /* TimeMovingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */; };
 		D460DBD82AC8C10D009A9959 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBD72AC8C10D009A9959 /* UIButton.swift */; };
 		D460DBDD2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBDC2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift */; };
+		D460DBDF2ACA129E009A9959 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBDE2ACA129E009A9959 /* UIScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMovingDirection.swift; sourceTree = "<group>"; };
 		D460DBD72AC8C10D009A9959 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		D460DBDC2AC9F681009A9959 /* TSASongTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSASongTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		D460DBDE2ACA129E009A9959 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 				D460DBB82AC71F53009A9959 /* UINavigationController.swift */,
 				D460DBC12AC75F5C009A9959 /* Double.swift */,
 				D460DBD72AC8C10D009A9959 /* UIButton.swift */,
+				D460DBDE2ACA129E009A9959 /* UIScrollView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				D460DB972AC5C129009A9959 /* UITableView.swift in Sources */,
 				D460DBAE2AC64745009A9959 /* PlayerViewController.swift in Sources */,
 				D460DB902AC4FF07009A9959 /* LossyDecodableList.swift in Sources */,
+				D460DBDF2ACA129E009A9959 /* UIScrollView.swift in Sources */,
 				D460DBC92AC7A5B1009A9959 /* SongOptionsViewModel.swift in Sources */,
 				D460DBA42AC6084F009A9959 /* WebServiceInjection.swift in Sources */,
 				D460DBD02AC8AB3C009A9959 /* AlbumSongsViewController.swift in Sources */,
