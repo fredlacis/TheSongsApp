@@ -15,8 +15,9 @@ class AlbumSongsViewController: UITableViewController {
     private let viewModel: AlbumSongsViewModel
     private var subscriptions = Set<AnyCancellable>()
     
-    init(viewModel: AlbumSongsViewModel) {
+    init(viewModel: AlbumSongsViewModel, coordinator: SongsCoordinator? = nil) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -75,7 +76,7 @@ extension AlbumSongsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath) else { return UITableViewCell() }
-        cell.configure(withSong: viewModel.album.songs[indexPath.row])
+        cell.configure(viewModel: viewModel.cellViewModels[indexPath.row])
         return cell
     }
     

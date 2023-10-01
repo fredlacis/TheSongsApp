@@ -15,8 +15,9 @@ class PlayerViewController: BaseViewController<PlayerView> {
     let viewModel: PlayerViewModel
     private var subscriptions = Set<AnyCancellable>()
     
-    init(viewModel: PlayerViewModel) {
+    init(viewModel: PlayerViewModel, coordinator: SongsCoordinator? = nil) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -15,8 +15,9 @@ class SongOptionsViewController: BaseViewController<SongOptionsView> {
     let viewModel: SongOptionsViewModel
     private var subscriptions = Set<AnyCancellable>()
     
-    init(viewModel: SongOptionsViewModel) {
+    init(viewModel: SongOptionsViewModel, coordinator: SongsCoordinator? = nil) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SongOptionsViewModel {
+final class SongOptionsViewModel: SongOptionsViewModelProtocol {
     
     @Published var song: SongModel
     

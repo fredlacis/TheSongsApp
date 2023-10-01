@@ -7,12 +7,18 @@
 
 import Foundation
 
-final class AlbumSongsViewModel: SongsRepositoryInjection, ImagesRepositoryInjection {
+final class AlbumSongsViewModel: AlbumSongsViewModelProtocol {
     
     @Published var album: AlbumModel
+    @Published var cellViewModels: [TSASongTableViewCellViewModel] = []
     
-    init(album: AlbumModel) {
+    var songsRepository: SongsRepository
+    var imagesRepository: ImagesRepository
+    
+    init(album: AlbumModel, songsRepository: SongsRepository, imagesRepository: ImagesRepository) {
         self.album = album
+        self.songsRepository = songsRepository
+        self.imagesRepository = imagesRepository
         getAlbumSongs()
     }
     
@@ -20,24 +26,11 @@ final class AlbumSongsViewModel: SongsRepositoryInjection, ImagesRepositoryInjec
         songsRepository.getAlbumSongs(byID: album.id) { [weak self] result in
             switch result {
                 case .success(let songs):
-                    self?.album.songs = songs
-                    self?.downloadSongsArtworks()
+                    guard let self else { return }
+                    self.album.songs = songs
+                    self.cellViewModels = songs.map { TSASongTableViewCellViewModel(song: $0, imagesRepository: self.imagesRepository) }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-            }
-        }
-    }
-    
-    private func downloadSongsArtworks() {
-        for (index, song) in album.songs.enumerated() {
-            imagesRepository.loadImage(from: song.artworkURL) { [weak self] result in
-                switch result {
-                    case .success(let image):
-                        guard index < (self?.album.songs.count ?? 0) else { break }
-                        self?.album.songs[index].artwork = image
-                    case .failure(let error):
-                        debugPrint(error)
-                }
             }
         }
     }

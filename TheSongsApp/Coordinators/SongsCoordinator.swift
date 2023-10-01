@@ -12,13 +12,20 @@ class SongsCoordinator: CoordinatorProtocol {
     var subCoordinators: [CoordinatorProtocol] = []
     var navigationController: UINavigationController
     
+    let webService: WebService
+    let imagesRepository: ImagesRepository
+    let songsRepository: SongsRepository
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        webService = URLSessionWebService()
+        imagesRepository = RemoteImagesRepository(webService: webService)
+        songsRepository = ITunesAPISongsRepository(webService: webService)
     }
     
     func start() {
-        let songSearchViewController = SongSearchViewController()
-        songSearchViewController.coordinator = self
+        let songSearchViewModel = SongSearchViewModel(songsRepository: songsRepository, imagesRepository: imagesRepository)
+        let songSearchViewController = SongSearchViewController(viewModel: songSearchViewModel, coordinator: self)
         navigationController.setViewControllers([songSearchViewController], animated: true)
     }
     
@@ -28,26 +35,23 @@ class SongsCoordinator: CoordinatorProtocol {
             navigationController.dismiss(animated: true)
             navigationController.popToViewController(playerViewController, animated: true)
         } else {
-            let playerViewModel = PlayerViewModel(song: song)
-            let playerViewController = PlayerViewController(viewModel: playerViewModel)
-            playerViewController.coordinator = self
+            let playerViewModel = PlayerViewModel(song: song, imagesRepository: imagesRepository)
+            let playerViewController = PlayerViewController(viewModel: playerViewModel, coordinator: self)
             navigationController.pushViewController(playerViewController, animated: true)
         }
     }
     
     func displaySongOptions(_ song: SongModel) {
         let songOptionsViewModel = SongOptionsViewModel(song: song)
-        let songOptionsViewController = SongOptionsViewController(viewModel: songOptionsViewModel)
+        let songOptionsViewController = SongOptionsViewController(viewModel: songOptionsViewModel, coordinator: self)
         let songOptionsViewNavigationController = UINavigationController(rootViewController: songOptionsViewController)
-        songOptionsViewController.coordinator = self
         navigationController.present(songOptionsViewNavigationController, animated: true)
     }
     
     func presentAlbumDetails(_ album: AlbumModel) {
-        let albumSongsViewModel = AlbumSongsViewModel(album: album)
-        let albumSongsViewController = AlbumSongsViewController(viewModel: albumSongsViewModel)
+        let albumSongsViewModel = AlbumSongsViewModel(album: album, songsRepository: songsRepository, imagesRepository: imagesRepository)
+        let albumSongsViewController = AlbumSongsViewController(viewModel: albumSongsViewModel, coordinator: self)
         let albumSongsNavigationController = UINavigationController(rootViewController: albumSongsViewController)
-        albumSongsViewController.coordinator = self
         navigationController.dismiss(animated: true)
         navigationController.present(albumSongsNavigationController, animated: true)
     }

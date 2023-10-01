@@ -8,11 +8,8 @@
 import Foundation
 
 protocol SongsRepositoryInjection {
+    
     var songsRepository: SongsRepository { get }
+    
 }
 
-extension SongsRepositoryInjection {
-    var songsRepository: SongsRepository {
-        return ITunesAPISongsRepository()
-    }
-}

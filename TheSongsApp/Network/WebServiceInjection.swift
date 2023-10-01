@@ -8,11 +8,7 @@
 import Foundation
 
 protocol WebServiceInjection {
-    var webService: WebServiceProtocol { get }
-}
-
-extension WebServiceInjection {
-    var webService: WebServiceProtocol {
-        return WebService()
-    }
+    
+    var webService: WebService { get }
+    
 }

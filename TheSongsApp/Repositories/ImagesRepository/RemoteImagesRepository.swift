@@ -9,8 +9,14 @@ import UIKit
 
 final class RemoteImagesRepository: ImagesRepository, WebServiceInjection {
     
+    var webService: WebService
+    
     private static var imagesCache = NSCache<NSString, UIImage>()
 
+    init(webService: WebService) {
+        self.webService = webService
+    }
+    
     func loadImage(from url: String, completion: @escaping ImageCompletion) {
         if let cachedImage = Self.imagesCache.object(forKey: url as NSString) {
             completion(.success(cachedImage))

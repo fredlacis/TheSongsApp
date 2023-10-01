@@ -7,16 +7,22 @@
 
 import Foundation
 
-final class TSASongTableViewCellViewModel: ImagesRepositoryInjection {
-
-    @Published var song: SongModel?
+final class TSASongTableViewCellViewModel: TSASongTableViewCellViewModelProtocol {
+    
+    @Published var song: SongModel
+    
+    var imagesRepository: ImagesRepository
+    
+    init(song: SongModel, imagesRepository: ImagesRepository) {
+        self.song = song
+        self.imagesRepository = imagesRepository
+    }
     
     func updateSongImage() {
-        guard let song else { return }
         imagesRepository.loadImage(from: song.artworkURL) { [weak self] result in
             switch result {
                 case .success(let image):
-                    self?.song?.artwork = image
+                    self?.song.artwork = image
                 case .failure(let error):
                     debugPrint(error)
             }

@@ -8,11 +8,7 @@
 import Foundation
 
 protocol ImagesRepositoryInjection {
+    
     var imagesRepository: ImagesRepository { get }
-}
-
-extension ImagesRepositoryInjection {
-    var imagesRepository: ImagesRepository {
-        return RemoteImagesRepository()
-    }
+    
 }

@@ -8,7 +8,7 @@
 import Combine
 import CoreMedia
 
-final class PlayerViewModel: ImagesRepositoryInjection {
+final class PlayerViewModel: PlayerViewModelProtocol {
     
     private let musicPlayer = MusicPlayerService()
     
@@ -19,10 +19,13 @@ final class PlayerViewModel: ImagesRepositoryInjection {
     @Published var currentSongPlaybackTime: Float = 0.0
     @Published var totalSongTime: Float = 0.0
     
+    var imagesRepository: ImagesRepository
+    
     private var subscriptions = Set<AnyCancellable>()
     
-    init(song: SongModel) {
+    init(song: SongModel, imagesRepository: ImagesRepository) {
         self.song = song
+        self.imagesRepository = imagesRepository
         setupServiceBindings()
         getSongArtwork()
     }
@@ -53,6 +56,11 @@ final class PlayerViewModel: ImagesRepositoryInjection {
             }
         }
     }
+    
+}
+
+// MARK: Setup Methods
+extension PlayerViewModel {
     
     private func setupServiceBindings() {
         musicPlayer.$songDuration.combineLatest(musicPlayer.$currentSongPlaybackTime)

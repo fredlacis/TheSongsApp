@@ -7,13 +7,22 @@
 
 import UIKit
 
-final class SongSearchViewModel: SongsRepositoryInjection, ImagesRepositoryInjection {
+final class SongSearchViewModel: SongSearchViewModelProtocol {
     
     @Published var songs: [SongModel] = []
+    @Published var cellViewModels: [TSASongTableViewCellViewModel] = []
     @Published var isLoading: Bool = false
     
-    var currentSearchTerm: String = ""
-    var currentLoadedPage: Int = 0
+    var songsRepository: SongsRepository
+    var imagesRepository: ImagesRepository
+    
+    private var currentSearchTerm: String = ""
+    private var currentLoadedPage: Int = 0
+    
+    init(songsRepository: SongsRepository, imagesRepository: ImagesRepository) {
+        self.songsRepository = songsRepository
+        self.imagesRepository = imagesRepository
+    }
     
     func searchSongs(byTerm term: String?) {
         currentSearchTerm = term ?? currentSearchTerm
@@ -22,8 +31,10 @@ final class SongSearchViewModel: SongsRepositoryInjection, ImagesRepositoryInjec
         songsRepository.searchSongs(byTerm: currentSearchTerm, page: currentLoadedPage) { [weak self] result in
             switch result {
                 case .success(let songs):
-                    self?.songs = songs
-                    self?.currentLoadedPage = 1
+                    guard let self else { return }
+                    self.songs = songs
+                    self.cellViewModels = songs.map { TSASongTableViewCellViewModel(song: $0, imagesRepository: self.imagesRepository) }
+                    self.currentLoadedPage = 1
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
             }
@@ -38,7 +49,10 @@ final class SongSearchViewModel: SongsRepositoryInjection, ImagesRepositoryInjec
             switch result {
                 case .success(let songs):
                     guard let self else { return }
-                    self.songs.append(contentsOf: songs.filter { !self.songs.contains($0) })
+                    let newSongs = songs.filter { !self.songs.contains($0) }
+                    let newSongsCellViewModels = newSongs.map { TSASongTableViewCellViewModel(song: $0, imagesRepository: self.imagesRepository) }
+                    self.songs.append(contentsOf: newSongs)
+                    self.cellViewModels.append(contentsOf: newSongsCellViewModels)
                     self.currentLoadedPage += 1
                 case .failure(let error):
                     debugPrint(error.localizedDescription)

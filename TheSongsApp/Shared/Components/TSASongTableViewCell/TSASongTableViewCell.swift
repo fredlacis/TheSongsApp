@@ -10,30 +10,24 @@ import Combine
 
 class TSASongTableViewCell: UITableViewCell {
     
-    private var viewModel = TSASongTableViewCellViewModel()
+    private var viewModel: TSASongTableViewCellViewModel?
     private var subscriptions = Set<AnyCancellable>()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    func configure(viewModel: TSASongTableViewCellViewModel) {
+        self.viewModel = viewModel
         setupBindings()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(withSong song: SongModel) {
-        viewModel.song = song
         viewModel.updateSongImage()
         setNeedsUpdateConfiguration()
     }
     
     override func prepareForReuse() {
-        viewModel.song = nil
+        viewModel = nil
+        subscriptions.forEach { $0.cancel() }
+        subscriptions = []
     }
     
     override func updateConfiguration(using state: UICellConfigurationState) {
-        guard let song = viewModel.song else { return }
+        guard let song = viewModel?.song else { return }
         
         var content = defaultContentConfiguration().updated(for: state)
         
@@ -53,7 +47,7 @@ class TSASongTableViewCell: UITableViewCell {
     }
     
     private func setupBindings() {
-        viewModel.$song
+        viewModel?.$song
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.setNeedsUpdateConfiguration()

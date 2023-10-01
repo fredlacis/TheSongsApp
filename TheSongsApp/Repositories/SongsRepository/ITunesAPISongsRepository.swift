@@ -8,6 +8,12 @@
 import Foundation
 
 final class ITunesAPISongsRepository: SongsRepository, WebServiceInjection {
+    
+    var webService: WebService
+    
+    init(webService: WebService) {
+        self.webService = webService
+    }
 
     func searchSongs(byTerm: String, page: Int, completion: @escaping SongsCompletion) {
         let limit = 15

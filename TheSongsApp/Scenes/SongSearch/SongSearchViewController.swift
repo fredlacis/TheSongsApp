@@ -12,11 +12,21 @@ class SongSearchViewController: UITableViewController {
     
     var coordinator: SongsCoordinator?
 
-    private let viewModel = SongSearchViewModel()
+    private let viewModel: SongSearchViewModel
     private var subscriptions = Set<AnyCancellable>()
     private var diffableDataSource: UITableViewDiffableDataSource<Int, SongModel>?
     
     private let searchController = UISearchController()
+    
+    init(viewModel: SongSearchViewModel, coordinator: SongsCoordinator? = nil) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,8 +136,8 @@ extension SongSearchViewController {
     private func tableViewDiffableDataSource() {
         diffableDataSource = UITableViewDiffableDataSource<Int, SongModel>(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
             guard let cell = tableView.dequeueReusableCell(ofType: TSASongTableViewCell.self, for: indexPath),
-                  let song = self?.viewModel.songs[indexPath.row] else { return UITableViewCell() }
-            cell.configure(withSong: song)
+                  let cellViewModel = self?.viewModel.cellViewModels[indexPath.row] else { return UITableViewCell() }
+            cell.configure(viewModel: cellViewModel)
             return cell
         }
     }
