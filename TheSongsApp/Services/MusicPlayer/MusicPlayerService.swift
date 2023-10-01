@@ -8,7 +8,7 @@
 import AVFoundation
 import Combine
 
-class MusicPlayerService {
+class MusicPlayerService: MusicPlayerServiceProtocol {
     
     @Published var currentSong: SongModel?
     @Published var isPlaying: Bool = false

@@ -37,7 +37,7 @@
 		D460DBAB2AC645E7009A9959 /* SongsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBAA2AC645E6009A9959 /* SongsCoordinator.swift */; };
 		D460DBAE2AC64745009A9959 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBAD2AC64745009A9959 /* PlayerViewController.swift */; };
 		D460DBB02AC6474D009A9959 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBAF2AC6474D009A9959 /* PlayerViewModel.swift */; };
-		D460DBB22AC6555C009A9959 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB12AC6555C009A9959 /* BaseViewController.swift */; };
+		D460DBB22AC6555C009A9959 /* TSAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB12AC6555C009A9959 /* TSAViewController.swift */; };
 		D460DBB42AC6562C009A9959 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB32AC6562C009A9959 /* PlayerView.swift */; };
 		D460DBB72AC7152A009A9959 /* TSASlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB62AC7152A009A9959 /* TSASlider.swift */; };
 		D460DBB92AC71F53009A9959 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBB82AC71F53009A9959 /* UINavigationController.swift */; };
@@ -62,6 +62,7 @@
 		D460DBF02ACA29CB009A9959 /* WebServiceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBEF2ACA29CB009A9959 /* WebServiceInjection.swift */; };
 		D460DBF22ACA29D3009A9959 /* ImagesRepositoryInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF12ACA29D3009A9959 /* ImagesRepositoryInjection.swift */; };
 		D460DBF42ACA29D9009A9959 /* SongsRepositoryInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF32ACA29D9009A9959 /* SongsRepositoryInjection.swift */; };
+		D460DBF72ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF62ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +117,7 @@
 		D460DBAA2AC645E6009A9959 /* SongsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCoordinator.swift; sourceTree = "<group>"; };
 		D460DBAD2AC64745009A9959 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		D460DBAF2AC6474D009A9959 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
-		D460DBB12AC6555C009A9959 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D460DBB12AC6555C009A9959 /* TSAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAViewController.swift; sourceTree = "<group>"; };
 		D460DBB32AC6562C009A9959 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D460DBB62AC7152A009A9959 /* TSASlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSASlider.swift; sourceTree = "<group>"; };
 		D460DBB82AC71F53009A9959 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		D460DBEF2ACA29CB009A9959 /* WebServiceInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceInjection.swift; sourceTree = "<group>"; };
 		D460DBF12ACA29D3009A9959 /* ImagesRepositoryInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesRepositoryInjection.swift; sourceTree = "<group>"; };
 		D460DBF32ACA29D9009A9959 /* SongsRepositoryInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsRepositoryInjection.swift; sourceTree = "<group>"; };
+		D460DBF62ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				D460DB8F2AC4FF07009A9959 /* LossyDecodableList.swift */,
-				D460DBB12AC6555C009A9959 /* BaseViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -396,6 +397,7 @@
 		D460DBB52AC71506009A9959 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D460DBB12AC6555C009A9959 /* TSAViewController.swift */,
 				D460DBDB2AC9F667009A9959 /* TSASongTableViewCell */,
 				D460DBB62AC7152A009A9959 /* TSASlider.swift */,
 			);
@@ -405,7 +407,7 @@
 		D460DBBA2AC7348D009A9959 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D460DBBB2AC734A5009A9959 /* MusicPlayerService.swift */,
+				D460DBF52ACA2FCA009A9959 /* MusicPlayer */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -479,6 +481,15 @@
 				D460DBED2ACA293C009A9959 /* TSASongTableViewCellViewModelProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D460DBF52ACA2FCA009A9959 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D460DBF62ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift */,
+				D460DBBB2AC734A5009A9959 /* MusicPlayerService.swift */,
+			);
+			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +660,7 @@
 				D460DB902AC4FF07009A9959 /* LossyDecodableList.swift in Sources */,
 				D460DBDF2ACA129E009A9959 /* UIScrollView.swift in Sources */,
 				D460DBC92AC7A5B1009A9959 /* SongOptionsViewModel.swift in Sources */,
+				D460DBF72ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift in Sources */,
 				D460DBD02AC8AB3C009A9959 /* AlbumSongsViewController.swift in Sources */,
 				D460DB822AC3C644009A9959 /* SongModel.swift in Sources */,
 				D460DBA22AC60800009A9959 /* WebService.swift in Sources */,
@@ -660,7 +672,7 @@
 				D460DB712AC3B532009A9959 /* SongSearchViewController.swift in Sources */,
 				D460DB8B2AC4D797009A9959 /* ITunesAPISongDTO.swift in Sources */,
 				D460DBAB2AC645E7009A9959 /* SongsCoordinator.swift in Sources */,
-				D460DBB22AC6555C009A9959 /* BaseViewController.swift in Sources */,
+				D460DBB22AC6555C009A9959 /* TSAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import CoreMedia
 
 final class PlayerViewModel: PlayerViewModelProtocol {
     
-    private let musicPlayer = MusicPlayerService()
+    private let musicPlayer: MusicPlayerService
     
     @Published var song: SongModel
     @Published var isPlaying: Bool = false
@@ -23,9 +23,10 @@ final class PlayerViewModel: PlayerViewModelProtocol {
     
     private var subscriptions = Set<AnyCancellable>()
     
-    init(song: SongModel, imagesRepository: ImagesRepository) {
+    init(song: SongModel, imagesRepository: ImagesRepository, musicPlayer: MusicPlayerService) {
         self.song = song
         self.imagesRepository = imagesRepository
+        self.musicPlayer = musicPlayer
         setupServiceBindings()
         getSongArtwork()
     }

@@ -13,12 +13,14 @@ class SongsCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
     
     let webService: WebService
-    let imagesRepository: ImagesRepository
     let songsRepository: SongsRepository
+    let imagesRepository: ImagesRepository
+    let musicPlayerService: MusicPlayerService
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         webService = URLSessionWebService()
+        musicPlayerService = MusicPlayerService()
         imagesRepository = RemoteImagesRepository(webService: webService)
         songsRepository = ITunesAPISongsRepository(webService: webService)
     }
@@ -35,7 +37,7 @@ class SongsCoordinator: CoordinatorProtocol {
             navigationController.dismiss(animated: true)
             navigationController.popToViewController(playerViewController, animated: true)
         } else {
-            let playerViewModel = PlayerViewModel(song: song, imagesRepository: imagesRepository)
+            let playerViewModel = PlayerViewModel(song: song, imagesRepository: imagesRepository, musicPlayer: musicPlayerService)
             let playerViewController = PlayerViewController(viewModel: playerViewModel, coordinator: self)
             navigationController.pushViewController(playerViewController, animated: true)
         }

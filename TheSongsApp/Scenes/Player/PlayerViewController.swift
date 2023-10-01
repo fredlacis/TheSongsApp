@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class PlayerViewController: BaseViewController<PlayerView> {
+class PlayerViewController: TSAViewController<PlayerView> {
     
     var coordinator: SongsCoordinator?
     
