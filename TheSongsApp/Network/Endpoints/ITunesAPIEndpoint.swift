@@ -9,7 +9,7 @@ import Foundation
 
 enum ITunesAPIEndpoint: Endpoint {
     case searchMusic(_ searchTerm: String, limit: Int, offset: Int = 0)
-    case lookupAlbum(_ albumID: String)
+    case lookupAlbum(_ albumID: Int)
     
     var scheme: String {
         return "https"
@@ -39,7 +39,7 @@ enum ITunesAPIEndpoint: Endpoint {
                 ]
             case .lookupAlbum(let albumID):
                 return [
-                    URLQueryItem(name: "id", value: albumID),
+                    URLQueryItem(name: "id", value: "\(albumID)"),
                     URLQueryItem(name: "entity", value: "song"),
                 ]
         }

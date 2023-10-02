@@ -13,7 +13,7 @@ struct SongModel: Hashable {
     let name: String
     let album: AlbumModel
     let artistName: String
-    let artworkURL: String
+    let artworkURL: URL
     var artwork: UIImage?
     
     func hash(into hasher: inout Hasher) {

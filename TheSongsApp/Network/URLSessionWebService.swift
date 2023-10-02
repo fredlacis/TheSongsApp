@@ -50,12 +50,7 @@ final class URLSessionWebService: WebService {
         task.resume()
     }
     
-    public func getImage(from url: String, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            completionHandler(.failure(NetworkError.badRequest))
-            return
-        }
-        
+    public func getImage(from url: URL, completionHandler: @escaping (Result<UIImage, Error>) -> Void) {
         let task = urlSession.dataTask(with: url) { data, _, error in
             if let error = error {
                 completionHandler(.failure(error))
@@ -92,38 +87,6 @@ final class URLSessionWebService: WebService {
         let decoder = JSONDecoder()
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData
-    }
-    
-    enum NetworkError: LocalizedError {
-        case invalidEndpoint
-        case unableToComplete
-        case badRequest
-        case notFound
-        case serverError
-        case noData
-        case unableToParse
-        case unknown
-        
-        var errorDescription: String {
-            switch self {
-            case .invalidEndpoint:
-                return "Endpoint URL is invalid"
-            case .unableToComplete:
-                return "Could not complete operation"
-            case .badRequest:
-                return "Bad request"
-            case .notFound:
-                return "Not found"
-            case .serverError:
-                return "Internal server error"
-            case .noData:
-                return "No data on response"
-            case .unableToParse:
-                return "Unable to parse response data"
-            default:
-                return "Unknown error"
-            }
-        }
     }
     
 }

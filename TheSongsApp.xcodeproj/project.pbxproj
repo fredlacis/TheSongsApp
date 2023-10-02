@@ -11,9 +11,6 @@
 		D460DB3E2AC2585D009A9959 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB3D2AC2585D009A9959 /* SceneDelegate.swift */; };
 		D460DB452AC2585F009A9959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D460DB442AC2585F009A9959 /* Assets.xcassets */; };
 		D460DB482AC2585F009A9959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D460DB462AC2585F009A9959 /* LaunchScreen.storyboard */; };
-		D460DB532AC2585F009A9959 /* TheSongsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB522AC2585F009A9959 /* TheSongsAppTests.swift */; };
-		D460DB5D2AC2585F009A9959 /* TheSongsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB5C2AC2585F009A9959 /* TheSongsAppUITests.swift */; };
-		D460DB5F2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */; };
 		D460DB712AC3B532009A9959 /* SongSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB702AC3B532009A9959 /* SongSearchViewController.swift */; };
 		D460DB732AC3B541009A9959 /* SongSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */; };
 		D460DB772AC3C19F009A9959 /* URLSessionWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DB762AC3C19F009A9959 /* URLSessionWebService.swift */; };
@@ -63,17 +60,16 @@
 		D460DBF22ACA29D3009A9959 /* ImagesRepositoryInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF12ACA29D3009A9959 /* ImagesRepositoryInjection.swift */; };
 		D460DBF42ACA29D9009A9959 /* SongsRepositoryInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF32ACA29D9009A9959 /* SongsRepositoryInjection.swift */; };
 		D460DBF72ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF62ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift */; };
+		D460DBFA2ACA34B8009A9959 /* MockSongsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBF92ACA34B8009A9959 /* MockSongsRepository.swift */; };
+		D460DBFC2ACA3548009A9959 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBFB2ACA3548009A9959 /* NetworkError.swift */; };
+		D460DBFE2ACA38B1009A9959 /* MockImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DBFD2ACA38B1009A9959 /* MockImagesRepository.swift */; };
+		D460DC032ACA3973009A9959 /* SongSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DC022ACA3973009A9959 /* SongSearchViewModelTests.swift */; };
+		D460DC062ACA4774009A9959 /* PlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DC052ACA4774009A9959 /* PlayerViewModelTests.swift */; };
+		D460DC092ACA47E7009A9959 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460DC082ACA47E7009A9959 /* SongModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D460DB4F2AC2585F009A9959 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D460DB302AC2585D009A9959 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D460DB372AC2585D009A9959;
-			remoteInfo = TheSongsApp;
-		};
-		D460DB592AC2585F009A9959 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D460DB302AC2585D009A9959 /* Project object */;
 			proxyType = 1;
@@ -90,10 +86,6 @@
 		D460DB472AC2585F009A9959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D460DB492AC2585F009A9959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D460DB4E2AC2585F009A9959 /* TheSongsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheSongsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D460DB522AC2585F009A9959 /* TheSongsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppTests.swift; sourceTree = "<group>"; };
-		D460DB582AC2585F009A9959 /* TheSongsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheSongsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D460DB5C2AC2585F009A9959 /* TheSongsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppUITests.swift; sourceTree = "<group>"; };
-		D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSongsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D460DB702AC3B532009A9959 /* SongSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewController.swift; sourceTree = "<group>"; };
 		D460DB722AC3B541009A9959 /* SongSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewModel.swift; sourceTree = "<group>"; };
 		D460DB762AC3C19F009A9959 /* URLSessionWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWebService.swift; sourceTree = "<group>"; };
@@ -143,6 +135,12 @@
 		D460DBF12ACA29D3009A9959 /* ImagesRepositoryInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesRepositoryInjection.swift; sourceTree = "<group>"; };
 		D460DBF32ACA29D9009A9959 /* SongsRepositoryInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsRepositoryInjection.swift; sourceTree = "<group>"; };
 		D460DBF62ACA2FF1009A9959 /* MusicPlayerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerServiceProtocol.swift; sourceTree = "<group>"; };
+		D460DBF92ACA34B8009A9959 /* MockSongsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSongsRepository.swift; sourceTree = "<group>"; };
+		D460DBFB2ACA3548009A9959 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D460DBFD2ACA38B1009A9959 /* MockImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImagesRepository.swift; sourceTree = "<group>"; };
+		D460DC022ACA3973009A9959 /* SongSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewModelTests.swift; sourceTree = "<group>"; };
+		D460DC052ACA4774009A9959 /* PlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModelTests.swift; sourceTree = "<group>"; };
+		D460DC082ACA47E7009A9959 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,13 +158,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D460DB552AC2585F009A9959 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -175,7 +166,6 @@
 			children = (
 				D460DB3A2AC2585D009A9959 /* TheSongsApp */,
 				D460DB512AC2585F009A9959 /* TheSongsAppTests */,
-				D460DB5B2AC2585F009A9959 /* TheSongsAppUITests */,
 				D460DB392AC2585D009A9959 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -185,7 +175,6 @@
 			children = (
 				D460DB382AC2585D009A9959 /* TheSongsApp.app */,
 				D460DB4E2AC2585F009A9959 /* TheSongsAppTests.xctest */,
-				D460DB582AC2585F009A9959 /* TheSongsAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,18 +197,10 @@
 		D460DB512AC2585F009A9959 /* TheSongsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D460DB522AC2585F009A9959 /* TheSongsAppTests.swift */,
+				D460DBFF2ACA3947009A9959 /* Mocks */,
+				D460DC002ACA394E009A9959 /* ScenesTests */,
 			);
 			path = TheSongsAppTests;
-			sourceTree = "<group>";
-		};
-		D460DB5B2AC2585F009A9959 /* TheSongsAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D460DB5C2AC2585F009A9959 /* TheSongsAppUITests.swift */,
-				D460DB5E2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift */,
-			);
-			path = TheSongsAppUITests;
 			sourceTree = "<group>";
 		};
 		D460DB6B2AC25D94009A9959 /* Application */ = {
@@ -309,6 +290,7 @@
 				D460DB812AC3C644009A9959 /* SongModel.swift */,
 				D460DBD32AC8AC9C009A9959 /* AlbumModel.swift */,
 				D460DBD52AC8BA48009A9959 /* TimeMovingDirection.swift */,
+				D460DBFB2ACA3548009A9959 /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,6 +474,57 @@
 			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
+		D460DBF82ACA34A2009A9959 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D460DBFD2ACA38B1009A9959 /* MockImagesRepository.swift */,
+				D460DBF92ACA34B8009A9959 /* MockSongsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D460DBFF2ACA3947009A9959 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D460DC072ACA47DA009A9959 /* Model */,
+				D460DBF82ACA34A2009A9959 /* Repositories */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		D460DC002ACA394E009A9959 /* ScenesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D460DC012ACA3961009A9959 /* SongSearch */,
+				D460DC042ACA4759009A9959 /* Player */,
+			);
+			path = ScenesTests;
+			sourceTree = "<group>";
+		};
+		D460DC012ACA3961009A9959 /* SongSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D460DC022ACA3973009A9959 /* SongSearchViewModelTests.swift */,
+			);
+			path = SongSearch;
+			sourceTree = "<group>";
+		};
+		D460DC042ACA4759009A9959 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D460DC052ACA4774009A9959 /* PlayerViewModelTests.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		D460DC072ACA47DA009A9959 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D460DC082ACA47E7009A9959 /* SongModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -530,24 +563,6 @@
 			productReference = D460DB4E2AC2585F009A9959 /* TheSongsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D460DB572AC2585F009A9959 /* TheSongsAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D460DB682AC2585F009A9959 /* Build configuration list for PBXNativeTarget "TheSongsAppUITests" */;
-			buildPhases = (
-				D460DB542AC2585F009A9959 /* Sources */,
-				D460DB552AC2585F009A9959 /* Frameworks */,
-				D460DB562AC2585F009A9959 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D460DB5A2AC2585F009A9959 /* PBXTargetDependency */,
-			);
-			name = TheSongsAppUITests;
-			productName = TheSongsAppUITests;
-			productReference = D460DB582AC2585F009A9959 /* TheSongsAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -562,10 +577,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					D460DB4D2AC2585F009A9959 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = D460DB372AC2585D009A9959;
-					};
-					D460DB572AC2585F009A9959 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = D460DB372AC2585D009A9959;
 					};
@@ -586,7 +597,6 @@
 			targets = (
 				D460DB372AC2585D009A9959 /* TheSongsApp */,
 				D460DB4D2AC2585F009A9959 /* TheSongsAppTests */,
-				D460DB572AC2585F009A9959 /* TheSongsAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -602,13 +612,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D460DB4C2AC2585F009A9959 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D460DB562AC2585F009A9959 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -671,6 +674,7 @@
 				D460DBD22AC8AB46009A9959 /* AlbumSongsViewModel.swift in Sources */,
 				D460DB712AC3B532009A9959 /* SongSearchViewController.swift in Sources */,
 				D460DB8B2AC4D797009A9959 /* ITunesAPISongDTO.swift in Sources */,
+				D460DBFC2ACA3548009A9959 /* NetworkError.swift in Sources */,
 				D460DBAB2AC645E7009A9959 /* SongsCoordinator.swift in Sources */,
 				D460DBB22AC6555C009A9959 /* TSAViewController.swift in Sources */,
 			);
@@ -680,16 +684,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D460DB532AC2585F009A9959 /* TheSongsAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D460DB542AC2585F009A9959 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D460DB5D2AC2585F009A9959 /* TheSongsAppUITests.swift in Sources */,
-				D460DB5F2AC2585F009A9959 /* TheSongsAppUITestsLaunchTests.swift in Sources */,
+				D460DBFE2ACA38B1009A9959 /* MockImagesRepository.swift in Sources */,
+				D460DC092ACA47E7009A9959 /* SongModel.swift in Sources */,
+				D460DC062ACA4774009A9959 /* PlayerViewModelTests.swift in Sources */,
+				D460DC032ACA3973009A9959 /* SongSearchViewModelTests.swift in Sources */,
+				D460DBFA2ACA34B8009A9959 /* MockSongsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,11 +699,6 @@
 			isa = PBXTargetDependency;
 			target = D460DB372AC2585D009A9959 /* TheSongsApp */;
 			targetProxy = D460DB4F2AC2585F009A9959 /* PBXContainerItemProxy */;
-		};
-		D460DB5A2AC2585F009A9959 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D460DB372AC2585D009A9959 /* TheSongsApp */;
-			targetProxy = D460DB592AC2585F009A9959 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -930,42 +924,6 @@
 			};
 			name = Release;
 		};
-		D460DB692AC2585F009A9959 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F8Q8C944BU;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredlacis.TheSongsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TheSongsApp;
-			};
-			name = Debug;
-		};
-		D460DB6A2AC2585F009A9959 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F8Q8C944BU;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredlacis.TheSongsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TheSongsApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -992,15 +950,6 @@
 			buildConfigurations = (
 				D460DB662AC2585F009A9959 /* Debug */,
 				D460DB672AC2585F009A9959 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D460DB682AC2585F009A9959 /* Build configuration list for PBXNativeTarget "TheSongsAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D460DB692AC2585F009A9959 /* Debug */,
-				D460DB6A2AC2585F009A9959 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

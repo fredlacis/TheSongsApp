@@ -11,6 +11,6 @@ protocol ImagesRepository {
     
     typealias ImageCompletion = (Result<UIImage, Error>) -> Void
     
-    func loadImage(from url: String, completion: @escaping ImageCompletion)
+    func loadImage(from url: URL, completion: @escaping ImageCompletion)
     
 }

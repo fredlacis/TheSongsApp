@@ -17,8 +17,8 @@ final class RemoteImagesRepository: ImagesRepository, WebServiceInjection {
         self.webService = webService
     }
     
-    func loadImage(from url: String, completion: @escaping ImageCompletion) {
-        if let cachedImage = Self.imagesCache.object(forKey: url as NSString) {
+    func loadImage(from url: URL, completion: @escaping ImageCompletion) {
+        if let cachedImage = Self.imagesCache.object(forKey: url.absoluteString as NSString) {
             completion(.success(cachedImage))
             return
         }
@@ -27,7 +27,7 @@ final class RemoteImagesRepository: ImagesRepository, WebServiceInjection {
             switch result {
                 case .success(let image):
                     completion(.success(image))
-                    Self.imagesCache.setObject(image, forKey: url as NSString)
+                    Self.imagesCache.setObject(image, forKey: url.absoluteString as NSString)
                 case .failure(let error):
                     completion(.failure(error))
             }

@@ -13,6 +13,6 @@ protocol SongsRepository {
     
     func searchSongs(byTerm: String, page: Int, completion: @escaping SongsCompletion)
     
-    func getAlbumSongs(byID: String, completion: @escaping SongsCompletion)
+    func getAlbumSongs(byID: Int, completion: @escaping SongsCompletion)
     
 }

@@ -28,7 +28,7 @@ final class ITunesAPISongsRepository: SongsRepository, WebServiceInjection {
         }
     }
     
-    func getAlbumSongs(byID: String, completion: @escaping SongsCompletion) {
+    func getAlbumSongs(byID: Int, completion: @escaping SongsCompletion) {
         webService.send(type: ITunesAPISongsListDTO.self, ITunesAPIEndpoint.lookupAlbum(byID)) { result in
             switch result {
                 case .success(let songsList):
