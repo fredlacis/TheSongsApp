@@ -8,7 +8,6 @@
 import Foundation
 
 enum TimeMovingDirection {
-    
     case forward
     case backward
     
